@@ -1,0 +1,43 @@
+{
+  "HOME": {
+    "VITEBSK": "Vitebsk",
+    "ADDRESS": "ul.Tereshkova 23",
+    "SMOTRA": "SMOTRA",
+    "TEL": "+375(29)655-77-77",
+    "RENT": "Car rental in Vitebsk",
+    "TEXTMINI": "We work in the city of Vitebsk.We meet at the station",
+    "TEXTMINIONE": "when booking any car from 1 day.",
+    "TESTMINISEC": "Legendary Germans at your disposal",
+    "TESTMINITH": "120+ cars in the fleet",
+    "BUTTONREN": "Rent Car",
+    "SIGN": "Sign In",
+    "SELCAR": "Select Car",
+    "OURBRAND": "Our brands",
+    "SERVICE": "Services",
+    "RENTALONE": "1. Car rental with driver",
+    "RENTALSEC": "2. Car rental without driver",
+    "RENTALTH": "3. Car rental for events and",
+    "RENTALTHH": "photo shoots",
+    "RENTALFOR": "4. Rent a car with a trip abroad",
+    "PARTNER": "Partners"
+  },
+  "ADD": {
+    "ENTER": "Enter passport data to order a car",
+    "NAME": "Name",
+    "SURNAME": "Surname",
+    "PASSPORT": "Passport ID",
+    "BIRTHDAY": "Birthday",
+    "BALANCE": "Top up account",
+    "TIME": "Time-Arent",
+    "AMOUNT": "Required amount: "
+  },
+  "LOGIN": {
+    "SIGN": "Sign In",
+    "LOGIN": "Login",
+    "PASSWORD": "Password"
+  },
+  "ADMIN": {
+    "SEND": "SEND",
+    "REPORT": "Rejection reason"
+  }
+}

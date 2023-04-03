@@ -1,0 +1,69 @@
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@600&display=swap');
+</style>
+<div>
+  <img class="img-phone" src="assets/images/bmwphone.jpg">
+  <img class="site-logo-reg" src="assets/images/logo.png">
+</div>
+<div>
+  <a class="log-logo-reg" routerLink="/" routerLinkActive="active">SMOTRA</a>
+</div>
+<div>
+  <button class="lang-icon" (click)="useLanguage('ru')"><img src="assets/images/russia.png" alt="ruflag" height="28px">
+  </button>
+  <button class="lang-icon-usa" (click)="useLanguage('en')"><img src="assets/images/usa.png" alt="ruflag" height="25px">
+  </button>
+</div>
+<div class="card" style=" margin-top: 104px;position: absolute; margin-left: -6px; width: 100%;cursor: default;">
+  <p-table [value]="users" [scrollable]="true" scrollHeight="544px">
+    <ng-template pTemplate="header">
+      <tr>
+        <th style="min-width:100px">Name</th>
+        <th style="min-width:130px">Surname</th>
+        <th style="min-width:130px">Birthday</th>
+        <th style="min-width:130px">PassId</th>
+        <th style="min-width:130px">Balance</th>
+        <th style="min-width:130px">TimeArent</th>
+        <th style="min-width:130px">NameCars</th>
+        <th style="min-width:130px">Model</th>
+        <th style="min-width:130px">Price</th>
+        <th style="min-width:130px">Rejected for a reason</th>
+        <th style="min-width:130px">Action</th>
+        <th style="min-width:100px">Damage</th>
+        <th style="min-width:100px"></th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-users>
+      <tr>
+        <td>{{users.name}}</td>
+        <td>{{users.surname}}</td>
+        <td>{{users.birthday}}</td>
+        <td>{{users.passid}}</td>
+        <td>{{users.balance}}$</td>
+        <td>{{users.timearent}}</td>
+        <td>{{users.nameCars}}</td>
+        <td>{{users.model}}</td>
+        <td>{{users.price}}$</td>
+        <td>{{users.deviations}}</td>
+        <td>
+          <div class="p-dealog-window p-dialogtitle p-dialog-button">
+          <p-button [disabled]="values(users.deviations)" icon="pi pi-check" styleClass="p-button-success" ></p-button>
+            <p-button icon="pi pi-times" styleClass="p-button-danger" class="icon-danger" (click)="showDialog(users.id)"></p-button>
+            <p-dialog header="{{'ADMIN.REPORT'|translate}}" [(visible)]="visible" [modal]="true" [style]="{ width: '50vw' }" [draggable]="false" [resizable]="false">
+              <form [formGroup]="usersForm" (ngSubmit)="submitForm()">
+              <input class="window-write" type="text"  formControlName="deviations" required>
+              <button pButton pRipple type="submit" (click)="closeTab()" label="{{'ADMIN.SEND' | translate}}"
+                      class="p-button-raised p-button-success button-sign"></button>
+              </form>
+            </p-dialog>
+          </div>
+        </td>
+        <td><p-button icon="pi pi-bell" styleClass="p-button-rounded p-button-danger p-button-text p-button-raised" (click)="updateDamage(users.id)"></p-button>
+        </td>
+        <td><img src="assets/images/{{users.damage}}" alt="" class="icon-damage"></td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>

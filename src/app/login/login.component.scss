@@ -1,0 +1,94 @@
+.img-phone {
+  width: 116%;
+  margin-top: -18%;
+  margin-left: -8%;
+  position: fixed;
+}
+.site-logo-reg {
+  height: 56px;
+  margin-top: 7px;
+  position: absolute;
+  margin-left: 113px;
+}
+.log-logo-reg {
+  position: absolute;
+  cursor: pointer;
+  color: black;
+  margin-left: 175px;
+  margin-top: 29px;
+  font-family: "Alfa Slab One", cursive;
+}
+.block {
+  padding: 445px 33px 41px !important;
+  background: white !important;
+  width: 548px !important;
+  border-radius: 20px !important;
+  position: absolute;
+  margin-left: 28% !important;
+  margin-right: auto !important;
+  margin-top: 89px !important;
+  box-shadow: 0 1px 20px rgba(0, 0, 0, 0.6);
+}
+.lang-icon {
+  background: transparent;
+  border: none;
+  height: 30px;
+  margin-left: 28%;
+  margin-top: 23px;
+  position: absolute;
+  cursor: pointer;
+}
+.lang-icon-usa {
+  background: transparent;
+  border: none;
+  margin-left: 31%;
+  margin-top: 25px;
+  position: absolute;
+  cursor: pointer;
+}
+.register-text-add {
+  margin-top: -71%;
+  width: 96%;
+  text-align: center;
+  margin-left: -4%;
+  position: absolute;
+  font-size: 40px;
+  text-shadow: 0 0 black;
+  font-family: "Bebas Neue", cursive;
+  cursor: default;
+}
+.form-dts {
+  margin-top: -40% !important;
+  margin-left: 45% !important;
+}
+.window-write {
+  margin-left: -31%;
+  position: absolute;
+  width: 70%;
+  margin-top: -19%;
+}
+.window-pass {
+  width: 70%;
+  position: absolute;
+  margin-top: 0%;
+  margin-left: -31%;
+}
+
+.button-rent {
+  position: absolute;
+  margin-top: 22%;
+  margin-left: -9%;
+  width: 27%;
+}
+.red-error {
+  position: absolute;
+  margin-left: 42%;
+  margin-top: -16%;
+  color: red;
+}
+.red-error-pass {
+  position: absolute;
+  margin-left: 42%;
+  margin-top: 3%;
+  color: red;
+}

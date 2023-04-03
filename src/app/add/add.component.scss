@@ -1,0 +1,185 @@
+.img-phone {
+  width: 116%;
+  margin-top: -18%;
+  margin-left: -8%;
+  position: fixed;
+}
+
+.block {
+  padding: 445px 33px 95px !important;
+  background: white !important;
+  width: 775px !important;
+  border-radius: 20px !important;
+  position: absolute;
+  margin-left: 19% !important;
+  margin-right: auto !important;
+  margin-top: 75px !important;
+  box-shadow: 0 1px 20px rgba(0, 0, 0, 0.6);
+}
+
+.site-logo-reg {
+  height: 56px;
+  margin-top: 7px;
+  position: absolute;
+  margin-left: 113px;
+}
+
+.log-logo-reg {
+  position: absolute;
+  cursor: pointer;
+  color: black;
+  margin-left: 175px;
+  margin-top: 29px;
+  font-family: "Alfa Slab One", cursive;
+}
+
+.form-dts {
+  display: grid !important;
+  grid-template-columns: auto auto !important;
+  margin-top: -40% !important;
+  margin-left: 45% !important;
+}
+
+.window-write {
+  width: 291px !important;
+  height: 48px !important;
+  padding: 6px 20px !important;
+  margin: 11px 363px !important;
+  box-sizing: border-box !important;
+  border: 3px solid #ccc !important;
+  -webkit-transition: 0.5s !important;
+  transition: 0.5s !important;
+  outline: none !important;
+  margin-left: -296px !important;
+  cursor: pointer;
+}
+
+.window-write:focus {
+  border: 3px solid #555 !important;
+}
+
+.window-date {
+  position: absolute;
+  width: 328px;
+  margin-top: 152px;
+  margin-left: 62px;
+}
+
+
+.button-rent {
+  position: absolute;
+  margin-top: 7%;
+  margin-left: 32%;
+  width: 27%;
+}
+
+.register-text-add {
+  margin-top: -50%;
+  width: 96%;
+  text-align: center;
+  margin-left: -2%;
+  position: absolute;
+  font-size: 35px;
+  text-shadow: 0 0 black;
+  font-family: "Bebas Neue", cursive;
+  cursor: default;
+}
+
+.my-component ::ng-deep .p-inputtext {
+  width: 291px !important;
+  height: 48px !important;
+  padding: 6px 20px !important;
+  margin: 11px 363px !important;
+  box-sizing: border-box !important;
+  border: 3px solid #ccc !important;
+  -webkit-transition: 0.5s !important;
+  transition: 0.5s !important;
+  outline: none !important;
+  margin-left: -296px !important;
+  cursor: pointer;
+}
+
+
+.register-select-car {
+  position: absolute;
+  margin-top: -40%;
+  margin-left: 26%;
+  font-family: "Quicksand", sans-serif;
+  cursor: default;
+}
+
+.green-car {
+  position: absolute;
+  border-radius: 23px;
+  width: 50px;
+  margin-left: 89%;
+  margin-top: -68%;
+}
+
+.center-flex {
+  margin-top: -67%;
+  position: absolute;
+  margin-left: 97%;
+  font-size: 27px;
+  width: 40%;
+  cursor: default;
+}
+
+.red-error {
+  margin-left: 1%;
+  margin-top: 4%;
+  color: red;
+  position: absolute;
+  cursor: default;
+}
+
+.red-error-sur {
+  position: absolute;
+  color: red;
+  margin-left: 47%;
+  margin-top: 4%;
+  cursor: default;
+}
+
+.red-error-pass {
+  margin-left: 1%;
+  margin-top: 13%;
+  color: red;
+  position: absolute;
+  cursor: default;
+}
+
+.red-error-balance {
+  margin-left: 1%;
+  margin-top: 22%;
+  color: red;
+  position: absolute;
+  cursor: default;
+}
+
+.lang-icon {
+  background: transparent;
+  border: none;
+  height: 30px;
+  margin-left: 28%;
+  margin-top: 23px;
+  position: absolute;
+  cursor: pointer;
+}
+.lang-icon-usa {
+  background: transparent;
+  border: none;
+  margin-left: 31%;
+  margin-top: 25px;
+  position: absolute;
+  cursor: pointer;
+}
+.text-price {
+  position: absolute;
+  margin-top: 27%;
+  margin-left: -38%;
+  font-size: 18px;
+  font-family: "Raleway", sans-serif;
+  cursor: default;
+}
+

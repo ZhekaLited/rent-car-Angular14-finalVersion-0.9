@@ -1,0 +1,125 @@
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:ital@1&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@300&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap');
+</style>
+<div>
+</div>
+
+<div>
+  <div class="blockk">
+    <a class="log-logo">{{'HOME.SMOTRA'| translate}}</a>
+    <a class="text-geo"><br>{{'HOME.VITEBSK' | translate}} <br>{{'HOME.ADDRESS' | translate}}</a>
+    <a class="text-phone">{{'HOME.TEL'| translate}}</a>
+    <div>
+      <button class="lang-icon" (click)="useLanguage('ru')">
+        <img src="assets/images/russia.png" alt="ruflag" height="28px"></button>
+      <button class="lang-icon-usa" (click)="useLanguage('en')">
+        <img src="assets/images/usa.png" alt="ruflag" height="28px"></button>
+    </div>
+  </div>
+  <div>
+    <div class="succeslabel suful-text suful-textsec">
+    <p-messages [(value)]="messages" [enableService]="true" [closable]="true"></p-messages>
+    </div>
+    <img class="site-logo" src="assets/images/logo.png">
+    <img class="logo-geo" src="assets/images/geo.png">
+    <img class="logo_phone" src="assets/images/phone.png">
+    <img class="car-photo" src="assets/images/carphoto1920.jpg">
+  </div>
+
+  <button pButton pRipple type="button" routerLink="/login" routerLinkActive="active" label="{{'HOME.SIGN' | translate}}"
+          class="p-button-raised p-button-success button-sign"></button>
+</div>
+<div>
+
+  <h1 class="text-big">{{'HOME.RENT' | translate}}</h1>
+  <h3 class="text-mini-big">{{'HOME.TEXTMINI' | translate}}<br>
+    {{'HOME.TEXTMINIONE' | translate}}<br>
+    {{'HOME.TESTMINISEC' | translate}}<br>
+    {{'HOME.TESTMINITH' | translate}}</h3>
+  <a href="#cars">
+    <button pButton pRipple type="button" label="{{'HOME.BUTTONREN' | translate}}"
+            class="p-button-success button-rent"></button>
+  </a>
+</div>
+<div>
+  <div class="allpage--body" id="cars"></div>
+  <h1 class="text-second">{{'HOME.SELCAR' | translate}}</h1>
+
+  <p-carousel [value]="cars" styleClass="custom-carousel" [numVisible]="3" [numScroll]="2" [circular]="true"
+              [autoplayInterval]="9000" [responsiveOptions]="responsiveOptions">
+    <ng-template let-cars pTemplate="item">
+      <div class="product-item">
+        <div class="product-item-content">
+          <img class="img-scroll" src="assets/images/{{cars.image}}">
+          <div>
+            <h4 class="mb-1 text-scroll">{{cars.name}}</h4>
+            <h4 class="mb-1 text-scroll-sec">{{cars.model}}</h4>
+            <h6 class="mt-0 mb-3 text-scroll-price">${{cars.price}}</h6>
+            <div class="car-buttons mt-5 button-scroll">
+              <p-button type="button" routerLink="/register/{{cars.id}}" routerLinkActive="active"
+                        styleClass="p-button-success button-rent button-scroll"
+                        label="{{'HOME.BUTTONREN' | translate}}"></p-button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </ng-template>
+  </p-carousel>
+
+
+  <h1 class="text-second-two">{{'HOME.OURBRAND' | translate}}<br></h1>
+  <br>
+</div>
+<div class="square-b">
+  <img class="img-bmw" src="assets/images/bmw.png">
+  <h3 class="text-bmw">BMW</h3>
+</div>
+<div class="square-m">
+  <img class="img-mersedes" src="assets/images/mersedes.png">
+  <h3 class="text-bmw">MERSEDES-BENZ</h3>
+</div>
+<div class="square-a">
+  <img class="img-audi" src="assets/images/Audi.png">
+  <h3 class="text-audi">AUDI</h3>
+</div>
+<div class="square-v">
+  <img class="img-audi" src="assets/images/volkswagen.png">
+  <h3 class="text-bmw">Volkswagen</h3>
+</div>
+<div>
+  <img class="img-bmw-39" src="assets/images/e39.jpg">
+  <h1 class="text-service">{{'HOME.SERVICE' | translate}}</h1>
+  <br>
+  <div class="square-service">
+    <div class="text-service-second">
+      <h2>{{'HOME.RENTALONE' | translate}}</h2>
+      <h2>{{'HOME.RENTALSEC' | translate}}</h2>
+      <h2>{{'HOME.RENTALTH' | translate}} <br> {{'HOME.RENTALTHH' | translate}}</h2>
+      <h2>{{'HOME.RENTALFOR' | translate}}</h2>
+    </div>
+  </div>
+</div>
+<div>
+  <h1 class="text-partner">{{'HOME.PARTNER' | translate}}</h1>
+  <br>
+  <img class="img-partner" src="assets/images/og-image.jpg">
+  <img class="img-partner-sec" src="assets/images/halva_1_1.jpg">
+  <img class="img-partner-angels" src="assets/images/angels.jpg">
+  <img class="img-partner-halva" src="assets/images/halva.jpg">
+  <img class="img-partner-oplati" src="assets/images/halva_1.jpg">
+</div>
+<div class="footer-block">
+  <img class="img-instagram" onclick="location.href='https://www.instagram.com/'" src="assets/images/2111463.png">
+  <img class="img-facebook" onclick="location.href='https://ru-ru.facebook.com/'" src="assets/images/2504903.png">
+  <img class="img-telegram" onclick="location.href='https://web.telegram.org/z/'" src="assets/images/3536661.png">
+  <img class="img-vk" onclick="location.href='https://vk.com/'" src="assets/images/5968835.png">
+  <div class="line-footer">
+    <hr align="right" width="1000px" size="3" color="white"/>
+  </div>
+  <h3 class="text-footer">SMOTRA VITEBSK 2014</h3>
+</div>

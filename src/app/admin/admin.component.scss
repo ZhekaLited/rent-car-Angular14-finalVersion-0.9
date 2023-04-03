@@ -1,0 +1,114 @@
+.img-phone {
+  width: 116%;
+  margin-top: -18%;
+  margin-left: -8%;
+  position: fixed;
+}
+.site-logo-reg {
+  height: 56px;
+  margin-top: 7px;
+  position: absolute;
+  margin-left: 113px;
+}
+.log-logo-reg {
+  position: absolute;
+  cursor: pointer;
+  color: black;
+  margin-left: 175px;
+  margin-top: 29px;
+  font-family: "Alfa Slab One", cursive;
+}
+.lang-icon {
+  background: transparent;
+  border: none;
+  height: 30px;
+  margin-left: 28%;
+  margin-top: 23px;
+  position: absolute;
+  cursor: pointer;
+}
+
+.lang-icon-usa {
+  background: transparent;
+  border: none;
+  margin-left: 31%;
+  margin-top: 25px;
+  position: absolute;
+  cursor: pointer;
+}
+.icon-danger {
+  margin-left: 2px;
+}
+.icon-damage {
+  width: 42px;
+  position: absolute;
+  margin-left: -23px;
+  margin-top: -21px;
+}
+.messags {
+  margin-left: 71%;
+  position: absolute;
+}
+.red-messages ::ng-deep .p-message.p-message-info {
+  background: #ffe7e6;
+  border: solid #ff5757;
+  border-width: 0 0 0 6px;
+  color: #ff5757;
+}
+.red-krest ::ng-deep .p-message.p-message-info .p-message-icon {
+  color: #ff5757;
+}
+.red-oval ::ng-deep .p-message.p-message-info .p-message-close {
+  color: #ff5757;
+}
+.window-write {
+  width: 400px !important;
+  height: 48px !important;
+  box-sizing: border-box !important;
+  border: 3px solid #ccc !important;
+  transition: 0.5s !important;
+  outline: none !important;
+  margin-left: 112px !important;
+  margin-top: -22%;
+  cursor: pointer;
+  position: fixed;
+}
+
+.window-write:focus {
+  border: 3px solid #555 !important;
+}
+.p-dealog-window ::ng-deep .p-dialog .p-dialog-header {
+  border-bottom: 0 none;
+  background: #ffffff;
+  color: #343a40;
+  padding: 9.5rem;
+  border-top-right-radius: 6px;
+  border-top-left-radius: 6px;
+}
+.p-dialogtitle ::ng-deep .p-dialog .p-dialog-header .p-dialog-title {
+  font-weight: 700;
+  font-size: 2.25rem;
+  text-align: center;
+  margin-left: 39px;
+  margin-top: -44%;
+  font-family: 'Raleway', sans-serif;
+}
+.p-dialog-button ::ng-deep .p-dialog .p-dialog-header .p-dialog-header-icon {
+  width: 2rem;
+  height: 2rem;
+  margin-top: -35%;
+  position: absolute;
+  margin-left: 13%;
+  color: #6c757d;
+  border: 0 none;
+  background: transparent;
+  border-radius: 50%;
+  transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
+  margin-right: -43.5rem;
+}
+.button-sign {
+  position: absolute;
+  margin-top: -7%;
+  margin-left: 212px;
+  width: 30%;
+}
