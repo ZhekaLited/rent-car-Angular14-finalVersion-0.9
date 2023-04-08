@@ -41,7 +41,7 @@
         <td>{{users.surname}}</td>
         <td>{{users.birthday}}</td>
         <td>{{users.passid}}</td>
-        <td>{{users.balance}}$</td>
+        <td [(ngModel)]="users.balance" ngDefaultControl>{{users.balance}}$</td>
         <td>{{users.timearent}}</td>
         <td>{{users.nameCars}}</td>
         <td>{{users.model}}</td>
@@ -49,8 +49,8 @@
         <td>{{users.deviations}}</td>
         <td>
           <div class="p-dealog-window p-dialogtitle p-dialog-button">
-          <p-button [disabled]="values(users.deviations)" icon="pi pi-check" styleClass="p-button-success" ></p-button>
-            <p-button icon="pi pi-times" styleClass="p-button-danger" class="icon-danger" (click)="showDialog(users.id)"></p-button>
+          <p-button [disabled]="users.disbalance" icon="pi pi-check" (click)="updateBalance(users.id,users.balance,users.price)" styleClass="icon p-button-success"></p-button>
+                          <p-button icon="pi pi-times" styleClass="p-button-danger" [disabled]="users.disbalance" class="icon-danger" (click)="showDialog(users.id)"></p-button>
             <p-dialog header="{{'ADMIN.REPORT'|translate}}" [(visible)]="visible" [modal]="true" [style]="{ width: '50vw' }" [draggable]="false" [resizable]="false">
               <form [formGroup]="usersForm" (ngSubmit)="submitForm()">
               <input class="window-write" type="text"  formControlName="deviations" required>
