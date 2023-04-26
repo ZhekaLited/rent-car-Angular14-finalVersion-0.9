@@ -19,7 +19,13 @@
     "RENTALTH": "3. Car rental for events and",
     "RENTALTHH": "photo shoots",
     "RENTALFOR": "4. Rent a car with a trip abroad",
-    "PARTNER": "Partners"
+    "PARTNER": "Partners",
+    "MORE": "More",
+    "CREATE": "Account",
+    "TITLESEC": "To further track the status of the order.",
+    "TITLEFIR": "Need to create an account or enter existing data",
+    "TITLEFOR": "Or enter your save details",
+    "SUBMIT": "Further"
   },
   "ADD": {
     "ENTER": "Enter passport data to order a car",
@@ -29,7 +35,8 @@
     "BIRTHDAY": "Birthday",
     "BALANCE": "Top up account",
     "TIME": "Time-Arent",
-    "AMOUNT": "Required amount: "
+    "AMOUNT": "Required amount: ",
+    "BACK": "Back to main screen"
   },
   "LOGIN": {
     "SIGN": "Sign In",
@@ -38,6 +45,36 @@
   },
   "ADMIN": {
     "SEND": "SEND",
-    "REPORT": "Rejection reason"
+    "REPORT": "Rejection reason",
+    "ACCEPT": "Accept",
+    "REJECT": "Reject",
+    "DAMAGE": "Damage",
+    "RUSSIA": "Russia",
+    "ENGLISH": "English",
+    "EXIT": "Exit",
+    "CAR": "ADD CAR",
+    "ADMIN": "Add Admin",
+    "BACK": "Back to admin panel",
+    "CREATE": "CREATE",
+    "TITLE": "Create Admin",
+    "TITLESEC": "Enter data to create an admin"
+  },
+  "USER": {
+    "TITLE": "Order Sheet",
+    "NAME": "Name:",
+    "SURNAME": "Surname:",
+    "BIRTHDAY": "Birthday: ",
+    "PASSPORT": "Passport ID: ",
+    "TIME": "Time-Arent: ",
+    "NAMECARS": "Name Cars: ",
+    "CARMODEL": "Car Model: ",
+    "STATUS": "Order status: "
+  },
+  "CAR": {
+    "TITLE": "Add Car",
+    "NAME": "Cars Name",
+    "MODEL": "Model",
+    "PRICE": "Price",
+    "ADD": "ADD"
   }
 }

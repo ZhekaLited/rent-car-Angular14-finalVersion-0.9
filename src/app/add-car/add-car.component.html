@@ -1,0 +1,44 @@
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+</style>
+<div>
+  <img class="img-phone" src="assets/images/bmwphone.jpg">
+  <img class="site-logo-reg" src="assets/images/logo.png">
+</div>
+<div>
+  <a class="log-logo-reg">SMOTRA</a>
+</div>
+<div>
+  <button class="lang-icon" (click)="useLanguage('ru')" pTooltip="{{'ADMIN.RUSSIA' | translate}}"
+          tooltipPosition="bottom"><img src="assets/images/russia.png" alt="ruflag" height="28px">
+  </button>
+  <button class="lang-icon-usa" (click)="useLanguage('en')" pTooltip="{{'ADMIN.ENGLISH' | translate}}"
+          tooltipPosition="bottom"><img src="assets/images/usa.png" alt="ruflag" height="25px">
+  </button>
+</div>
+<div class="block">
+  <img src="assets/images/free-icon-left-arrow-5166419.png" class="strelka" routerLink="/admin"
+       routerLinkActive="active"
+       pTooltip="{{'ADMIN.BACK' | translate}}"
+       tooltipPosition="bottom">
+</div>
+<div>
+  <h1 class="title">{{'CAR.TITLE'|translate}}</h1>
+  <input type="text" pInputText class="window-write"
+         placeholder="{{'CAR.NAME'|translate}}" >
+  <input type="text" pInputText class="window-writes"
+         placeholder="{{'CAR.MODEL'|translate}}">
+  <input type="text" pInputText class="window-writet"
+         placeholder="{{'CAR.PRICE'|translate}}">
+  <input type="text" pInputText class="window-writefv"
+         placeholder="release">
+  <input type="text" pInputText class="window-writesi"
+         placeholder="kpp">
+  <input type="text" pInputText class="window-writesev"
+         placeholder="dvigatel">
+  <input type="text" pInputText class="window-writeeight"
+         placeholder="mesta">
+<!--  <button type="submit"  pButton pRipple label="{{'CAR.ADD'| translate}}"-->
+<!--          class="p-button-success button-rent"></button>-->
+</div>

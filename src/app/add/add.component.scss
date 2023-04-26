@@ -6,14 +6,14 @@
 }
 
 .block {
-  padding: 445px 33px 95px !important;
+  padding: 470px 37px 106px !important;
   background: white !important;
-  width: 775px !important;
+  width: 1129px !important;
   border-radius: 20px !important;
   position: absolute;
-  margin-left: 19% !important;
+  margin-left: 6% !important;
   margin-right: auto !important;
-  margin-top: 75px !important;
+  margin-top: 84px !important;
   box-shadow: 0 1px 20px rgba(0, 0, 0, 0.6);
 }
 
@@ -26,7 +26,7 @@
 
 .log-logo-reg {
   position: absolute;
-  cursor: pointer;
+  cursor: default;
   color: black;
   margin-left: 175px;
   margin-top: 29px;
@@ -74,10 +74,10 @@
 }
 
 .register-text-add {
-  margin-top: -50%;
+  margin-top: -38%;
   width: 96%;
   text-align: center;
-  margin-left: -2%;
+  margin-left: 28%;
   position: absolute;
   font-size: 35px;
   text-shadow: 0 0 black;
@@ -182,4 +182,70 @@
   font-family: "Raleway", sans-serif;
   cursor: default;
 }
+.black-block {
+  padding: 352px 37px 106px !important;
+  background:#0000001a !important;
+  width: 38% !important;
+  position: absolute;
+  margin-left: 56% !important;
+  margin-right: auto !important;
+  margin-top: -34% !important;
+}
+.icon-calendar {
+  width: 13%;
+  position: absolute;
+  margin-top: -71%;
+}
+.icon-kpp {
+  width: 13%;
+  position: absolute;
+  margin-top: -48%;
+}
+.icon-dvigatel {
+  width: 13%;
+  position: absolute;
+  margin-top: -25%;
+}
+.icon-mest {
+  width: 13%;
+  position: absolute;
+  margin-top: 0%;
+}
+.text-release {
+  position: absolute;
+  margin-top: -68%;
+  margin-left: 35%;
+  font-family: "Bebas Neue", cursive;
+  cursor: default;
+}
+.text-kpp {
+  position: absolute;
+  margin-top: -46%;
+  margin-left: 35%;
+  font-family: "Bebas Neue", cursive;
+  cursor: default;
+}
+.text-dvigatel {
+  position: absolute;
+  margin-top: -23%;
+  margin-left: 35%;
+  font-family: "Bebas Neue", cursive;
+  cursor: default;
+}
+.text-mesta {
+  position: absolute;
+  margin-top:  2%;
+  margin-left: 35%;
+  font-family: "Bebas Neue", cursive;
+  cursor: default;
+}
+.strelka {
+  position: absolute;
+  width: 8%;
+  margin-top: -97%;
+  margin-left: -154%;
+  cursor: pointer;
+}
+
+
 

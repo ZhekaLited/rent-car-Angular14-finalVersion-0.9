@@ -144,5 +144,9 @@ export class AdminComponent implements OnInit {
         });
     }
   }
+  public clear() {
+    localStorage.removeItem("access_token");
+     this.route.navigateByUrl("/");
+  }
 }
 

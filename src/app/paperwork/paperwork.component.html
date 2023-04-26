@@ -1,0 +1,62 @@
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap');
+</style>
+<div>
+  <img class="img-phone" src="assets/images/bmwphone.jpg">
+  <img class="site-logo-reg" src="assets/images/logo.png">
+</div>
+<div>
+  <a class="log-logo-reg">SMOTRA</a>
+  <div>
+    <button class="lang-icon" (click)="useLanguage('ru')" pTooltip="{{'ADMIN.RUSSIA' | translate}}"
+            tooltipPosition="bottom"><img src="assets/images/russia.png" alt="ruflag" height="28px">
+    </button>
+    <button class="lang-icon-usa" (click)="useLanguage('en')" pTooltip="{{'ADMIN.ENGLISH' | translate}}"
+            tooltipPosition="bottom"><img src="assets/images/usa.png" alt="ruflag" height="25px">
+    </button>
+  </div>
+</div>
+<div class="block">
+  <h2 class="text-title">{{'ADD.ENTER'|translate}}<br>{{car.name}}({{car.model}})</h2>
+  <form [formGroup]="carsForm" (ngSubmit)="submitForm()">
+    <div class="form-dts">
+      <input class="window-write" formControlName="name" type="text" placeholder="{{'ADD.NAME' | translate}}" required
+             [ngClass]="{ 'is-invalid': submitted && f['name'].errors }"/>
+      <div *ngIf="submitted && f['name'].errors" class="invalid-feedback red-error">
+        <div *ngIf="f['name'].errors['required']">*</div>
+      </div>
+      <input class="window-write" formControlName="surname" type="text" placeholder="{{'ADD.SURNAME' | translate}}"
+             required
+             [ngClass]="{ 'is-invalid': submitted && f['surname'].errors }"/>
+      <div *ngIf="submitted && f['surname'].errors" class="invalid-feedback red-error-sur">
+        <div *ngIf="f['surname'].errors['required']">*</div>
+      </div>
+      <input class="window-write" formControlName="passid" type="text" placeholder="{{'ADD.PASSPORT'| translate}}"
+             required
+             [ngClass]="{ 'is-invalid': submitted && f['passid'].errors }"/>
+      <div *ngIf="submitted && f['passid'].errors" class="invalid-feedback red-error-pass">
+        <div *ngIf="f['passid'].errors['required']">*</div>
+      </div>
+      <p-calendar dataType="string" class="my-component" formControlName="birthday" [readonlyInput]="true"
+                  dateFormat="yy-mm-dd" placeholder="{{'ADD.BIRTHDAY' | translate}}" [required]="false"></p-calendar>
+      <input class="window-write" formControlName="balance" type="text" placeholder="{{'ADD.BALANCE' | translate}}"
+             required
+             [ngClass]="{ 'is-invalid': submitted && f['balance'].errors }"/>
+      <div *ngIf="submitted && f['balance'].errors" class="invalid-feedback red-error-balance text-price">
+        <div *ngIf="f['balance'].errors['required']">{{'ADD.AMOUNT'|translate}}{{car.price}}$</div>
+      </div>
+      <p-calendar class="my-component" dataType="string" formControlName="timearent" [readonlyInput]="true"
+                  [showTime]="true" dateFormat="yy-mm-dd" placeholder="{{'ADD.TIME'| translate}}"
+                  [required]="false"></p-calendar>
+      <input type="hidden" formControlName="carsid">
+      <input type="hidden" formControlName="userid">
+    </div>
+    <button pButton pRipple type="submit" (click)="show()" label="{{'HOME.BUTTONREN' | translate}}"
+            class="p-button-success button-rent"></button>
+  </form>
+</div>
+<div>
+  <img src="assets/images/free-icon-left-arrow-5166419.png"
+       class="strelka" routerLink="/" routerLinkActive="active" pTooltip="{{'ADD.BACK' | translate}}"
+       tooltipPosition="bottom">
+</div>

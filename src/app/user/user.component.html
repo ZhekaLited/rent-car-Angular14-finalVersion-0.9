@@ -1,0 +1,45 @@
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@600&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
+</style>
+<div>
+  <img class="img-phone" src="assets/images/bmwphone.jpg">
+  <img class="site-logo-reg" src="assets/images/logo.png">
+</div>
+<div>
+  <a class="log-logo-reg">SMOTRA</a>
+</div>
+<div>
+  <button class="lang-icon" (click)="useLanguage('ru')" pTooltip="{{'ADMIN.RUSSIA' | translate}}"
+          tooltipPosition="bottom"><img src="assets/images/russia.png" alt="ruflag" height="28px">
+  </button>
+  <button class="lang-icon-usa" (click)="useLanguage('en')" pTooltip="{{'ADMIN.ENGLISH' | translate}}"
+          tooltipPosition="bottom"><img src="assets/images/usa.png" alt="ruflag" height="25px">
+  </button>
+</div>
+<div>
+  <p-button label="{{'ADMIN.EXIT'|translate}}"
+            styleClass="p-button-outlined p-button-danger" (click)="clear()" class="exit-button">
+  </p-button>
+</div>
+<div class="block">
+  <a class="order">{{'USER.TITLE'| translate}}</a>
+  <h3 class="name">{{'USER.NAME'|translate}} {{user.name}}</h3>
+  <h3 class="sur">{{'USER.SURNAME'|translate}} {{user.surname}}</h3>
+  <h3 class="birth">{{'USER.BIRTHDAY'|translate}} {{user.birthday}}</h3>
+  <h3 class="pass">{{'USER.PASSPORT'|translate}} {{user.passid}}</h3>
+  <h3 class="arrent">{{'USER.TIME'|translate}} {{user.timearent}}</h3>
+  <div class="line-footer">
+    <hr align="right" width="1000px" size="3" color="black"/>
+  </div>
+  <h3 class="carname">{{'USER.NAMECARS'|translate}} {{user.nameCars}}</h3>
+  <h3 class="carmodel">{{'USER.CARMODEL'|translate}} {{user.model}}</h3>
+  <div class="line-footersec">
+    <hr align="right" width="1000px" size="3" color="black"/>
+  </div>
+  <h3 class="status">{{'USER.STATUS'|translate}}</h3>
+  <img class="img-status" src="assets/images/{{user.status}}">
+  <h3 class="devit">{{user.deviations}}</h3>
+</div>

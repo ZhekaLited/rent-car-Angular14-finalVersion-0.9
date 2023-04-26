@@ -23,7 +23,12 @@ import { InputTextModule } from 'primeng/inputtext';
 import { TableModule } from 'primeng/table';
 import {ConfirmDialogModule} from 'primeng/confirmdialog';
 import { DialogModule } from 'primeng/dialog';
-
+import {TooltipModule} from 'primeng/tooltip';
+import {GalleriaModule} from 'primeng/galleria';
+import { PaperworkComponent } from './paperwork/paperwork.component';
+import { UserComponent } from './user/user.component';
+import { CreateAdminComponent } from './create-admin/create-admin.component';
+import { AddCarComponent } from './add-car/add-car.component';
 
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
   return new TranslateHttpLoader(http);
@@ -35,7 +40,11 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
     HomeComponent,
     AddComponent,
     AdminComponent,
-    LoginComponent
+    LoginComponent,
+    PaperworkComponent,
+    UserComponent,
+    CreateAdminComponent,
+    AddCarComponent
   ],
   imports: [
     BrowserModule,
@@ -45,12 +54,14 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
     InputTextModule,
     DialogModule,
     MessagesModule,
+    GalleriaModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     ProgressSpinnerModule,
     CalendarModule,
     ButtonModule,
     HttpClientModule,
+    TooltipModule,
     CarouselModule,
     ReactiveFormsModule,
     ChipModule,

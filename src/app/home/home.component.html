@@ -7,23 +7,24 @@
   @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@500&display=swap');
 </style>
 <div>
-</div>
-
-<div>
   <div class="blockk">
     <a class="log-logo">{{'HOME.SMOTRA'| translate}}</a>
     <a class="text-geo"><br>{{'HOME.VITEBSK' | translate}} <br>{{'HOME.ADDRESS' | translate}}</a>
     <a class="text-phone">{{'HOME.TEL'| translate}}</a>
     <div>
-      <button class="lang-icon" (click)="useLanguage('ru')">
+      <button class="lang-icon" (click)="useLanguage('ru')"
+              pTooltip="{{'ADMIN.RUSSIA' | translate}}"
+              tooltipPosition="bottom">
         <img src="assets/images/russia.png" alt="ruflag" height="28px"></button>
-      <button class="lang-icon-usa" (click)="useLanguage('en')">
+      <button class="lang-icon-usa" (click)="useLanguage('en')"
+              pTooltip="{{'ADMIN.ENGLISH' | translate}}"
+              tooltipPosition="bottom">
         <img src="assets/images/usa.png" alt="ruflag" height="28px"></button>
     </div>
   </div>
   <div>
     <div class="succeslabel suful-text suful-textsec">
-    <p-messages [(value)]="messages" [enableService]="true" [closable]="true"></p-messages>
+      <p-messages [(value)]="messages" [enableService]="true" [closable]="true"></p-messages>
     </div>
     <img class="site-logo" src="assets/images/logo.png">
     <img class="logo-geo" src="assets/images/geo.png">
@@ -31,7 +32,8 @@
     <img class="car-photo" src="assets/images/carphoto1920.jpg">
   </div>
 
-  <button pButton pRipple type="button" routerLink="/login" routerLinkActive="active" label="{{'HOME.SIGN' | translate}}"
+  <button pButton pRipple type="button" routerLink="/login" routerLinkActive="active"
+          label="{{'HOME.SIGN' | translate}}"
           class="p-button-raised p-button-success button-sign"></button>
 </div>
 <div>
@@ -61,16 +63,49 @@
             <h4 class="mb-1 text-scroll-sec">{{cars.model}}</h4>
             <h6 class="mt-0 mb-3 text-scroll-price">${{cars.price}}</h6>
             <div class="car-buttons mt-5 button-scroll">
-              <p-button type="button" routerLink="/register/{{cars.id}}" routerLinkActive="active"
+              <p-button (click)="showDialog(cars.id)" type="button"
                         styleClass="p-button-success button-rent button-scroll"
                         label="{{'HOME.BUTTONREN' | translate}}"></p-button>
+              <p-button type="button" label="..." routerLink="/register/{{cars.id}}" routerLinkActive="active"
+                        styleClass="p-button-warning button-rent button-scroll"
+                        style="position: absolute;   margin-left: 1%;"
+                        pTooltip="{{'HOME.MORE' | translate}}"
+                        tooltipPosition="bottom"></p-button>
             </div>
           </div>
         </div>
       </div>
     </ng-template>
   </p-carousel>
-
+  <div class="p-header white-block">
+    <p-dialog header="{{'HOME.CREATE'| translate}}" [(visible)]="visible" [modal]="true" [style]="{ width: '50vw' }"
+              [draggable]="false" [resizable]="false">
+      <p class="m-0 title-dialog">
+        {{'HOME.TITLESEC'|translate}}
+      </p>
+      <p class="title-dialog-sec">
+        {{'HOME.TITLEFIR'|translate}}
+      </p>
+      <form [formGroup]="Form" (ngSubmit)="submit()">
+        <input formControlName="login" type="text" pInputText class="input-login"
+               placeholder="{{'LOGIN.LOGIN'|translate}}" style="position: absolute;" required
+               [ngClass]="{ 'is-invalid': submitted && f['login'].errors }"/>
+        <div *ngIf="submitted && f['login'].errors" class="invalid-feedback red-error-log">
+          <div *ngIf="f['login'].errors['required']">*</div>
+        </div>
+        <input formControlName="password" type="password"
+               class="p-inputtext p-component p-element p-password-input input-password"
+               placeholder="{{'LOGIN.PASSWORD'|translate}}" required
+               [ngClass]="{ 'is-invalid': submitted && f['password'].errors }"/>
+        <div *ngIf="submitted && f['password'].errors" class="invalid-feedback red-error-pas">
+          <div *ngIf="f['password'].errors['required']">*</div>
+        </div>
+        <p-button type="submit"  styleClass="p-button-success button-sub button-scroll"
+                  label="{{'HOME.SUBMIT'|translate}}"
+                  style="position: absolute;margin-top: 30%;margin-left: 39%;"></p-button>
+      </form>
+    </p-dialog>
+  </div>
 
   <h1 class="text-second-two">{{'HOME.OURBRAND' | translate}}<br></h1>
   <br>

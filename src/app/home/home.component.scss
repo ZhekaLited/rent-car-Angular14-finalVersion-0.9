@@ -59,7 +59,7 @@
 }
 .log-logo {
   position: absolute;
-  cursor: pointer;
+  cursor: default;
   color: white;
   margin-left: -22px;
   margin-top: 46px;
@@ -323,6 +323,19 @@
 .button-scroll {
   margin-left: 50px;
 }
+.my-component ::ng-deep .p-inputtext {
+  width: 291px !important;
+  height: 48px !important;
+  padding: 6px 20px !important;
+  margin: 11px 363px !important;
+  box-sizing: border-box !important;
+  border: 3px solid #ccc !important;
+  -webkit-transition: 0.5s !important;
+  transition: 0.5s !important;
+  outline: none !important;
+  margin-left: -296px !important;
+  cursor: pointer;
+}
 
 
 body:not([class]) {
@@ -414,5 +427,58 @@ body:not([class]) {
   font-weight: 700;
   cursor: default;
 }
-
+.p-header ::ng-deep .p-dialog .p-dialog-header .p-dialog-title {
+  font-weight: 700;
+  font-size: 1.25rem;
+  text-align: center;
+  margin-left: 43%;
+  cursor: default;
+}
+.title-dialog {
+  margin-left: 1%;
+  text-align: center;
+  margin-top: 0%;
+  cursor: default;
+}
+.title-dialog-sec {
+  margin-left: 0%;
+  text-align: center;
+  cursor: default;
+}
+.input-login{
+  position: absolute;
+  margin-left: 21%;
+  margin-top: 4%;
+  width: 50%;
+}
+.input-password {
+  width: 50%;
+  margin-top: 17%;
+  margin-left: 21%;
+  position: absolute;
+}
+.white-block ::ng-deep .p-dialog .p-dialog-content {
+  background: #ffffff;
+  color: #495057;
+  padding: 0 1.5rem 17rem 1.5rem;
+}
+.button-sub {
+  position: absolute;
+  margin-top: 30%;
+  margin-left: -33%;
+}
+.red-error-log {
+  position: absolute;
+  color: red;
+  margin-left: 74%;
+  margin-top: 6%;
+  cursor: default;
+}
+.red-error-pas {
+  position: absolute;
+  color: red;
+  margin-left: 74%;
+  margin-top: 19%;
+  cursor: default;
+}
 

@@ -12,7 +12,7 @@
 }
 .log-logo-reg {
   position: absolute;
-  cursor: pointer;
+  cursor: default;
   color: black;
   margin-left: 175px;
   margin-top: 29px;
@@ -115,4 +115,19 @@
 .icon-suc {
   height: 23px;
   width: 20px;
+}
+.exit-button{
+  position: absolute;
+  margin-left: 85%;
+  margin-top: 1%;
+}
+.addCar-button {
+  position: absolute;
+  margin-left: 71%;
+  margin-top: 1%;
+}
+.admin-button {
+  position: absolute;
+  margin-top: 1%;
+  margin-left: 66%;
 }

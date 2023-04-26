@@ -1,12 +1,16 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, NgZone, OnInit} from '@angular/core';
 import {Cars} from 'src/app/_models/cars';
 import {CarService} from "../_service/car.service";
-import {first, Observable, retry} from 'rxjs';
-import {HttpClient} from "@angular/common/http";
+import {first, map, Observable, retry} from 'rxjs';
+import {HttpClient, HttpHeaders} from "@angular/common/http";
 import {TranslateService} from "@ngx-translate/core";
 import {Global} from "../globals";
 import {Message, MessageService} from 'primeng/api';
 import {AppComponent} from "../app.component";
+import {Users} from "../_models/users";
+import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import {Router} from "@angular/router";
+import {Admin} from "../_models/admin";
 
 
 @Component({
@@ -15,16 +19,24 @@ import {AppComponent} from "../app.component";
   styleUrls: ['./home.component.scss'],
   providers: [MessageService]
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent  implements OnInit {
 
   cars: Cars[] = [];
   responsiveOptions;
   messages!: Message[];
-
+  visible!: boolean;
+  users: Users[] = [];
+  id!: any;
+  Form!: FormGroup;
+  submitted = false;
+  admin: Admin[] = [];
+  iduser!: any;
+  login!: any;
 
   constructor(private carService: CarService, private http: HttpClient,
               private translate: TranslateService, private messageService: MessageService,
-              private appComponent: AppComponent
+              private appComponent: AppComponent, public fb: FormBuilder,private ngZone: NgZone,
+              private router: Router
   ) {
     this.responsiveOptions = [
       {
@@ -49,11 +61,35 @@ export class HomeComponent implements OnInit {
 
 
   ngOnInit() {
-    this.carService.getAll().pipe(first()).subscribe(cars => {
-      this.cars = cars;
+      this.addIssue();
+      this.carService.getAll().pipe(first()).subscribe(cars => {
+        this.cars = cars;
+      });
+      this.useLanguage(Global.language);
+      this.show();
+    }
+
+  addIssue() {
+    this.Form = this.fb.group({
+      login: ['',Validators.required],
+      password: ['',Validators.required],
     });
-    this.useLanguage(Global.language);
-    this.show();
+  }
+
+  get f() {
+    return this.Form.controls;
+  }
+
+  submit() {
+    this.submitted = true;
+    if (this.Form.invalid) {
+      return;
+    } else {
+      this.carService.CreateAccount(this.Form.value).subscribe((res) => {
+        console.log('Issue added!');
+        this.getRoleByLoginPassword(this.Form.value)
+      });
+    }
   }
 
   getByIdCars(id: bigint | null): Observable<Cars> {
@@ -70,5 +106,26 @@ export class HomeComponent implements OnInit {
   show() {
     if (this.appComponent.showMessages)
       this.messages = [{ severity: 'success', summary: 'Successful', detail: 'Your application is under consideration' }];
+  }
+
+  showDialog(id: any) {
+    let userFind = this.cars.find(y => y.id == id);
+    if (userFind != null) {
+      if (id != null || "") {
+        this.visible = true;
+        return this.id = id;
+      } else {
+        this.visible = false;
+      }
+    }
+  }
+
+  getRoleByLoginPassword(body:string){
+    this.http.post<string>('http://localhost:8080/cars/getUser',
+      body).subscribe(res => {
+      let string = JSON.stringify(res); //Запарсить. Делается потому что обьект не парсится
+      this.iduser = JSON.parse(string).id;
+      this.ngZone.run(() => this.router.navigate(['/paperwork/' + this.id],  { queryParams: {iduser: this.iduser}})); //Таким образом отправляет id на другой компонент
+    })
   }
 }

@@ -1,6 +1,6 @@
 import {Component, NgZone, OnInit} from '@angular/core';
 import {Cars} from "../_models";
-import {switchMap} from "rxjs";
+import {Observable, switchMap} from "rxjs";
 import {CarService} from "../_service/car.service";
 import {MessageService, PrimeNGConfig} from "primeng/api";
 import {HttpClient} from "@angular/common/http";
@@ -10,6 +10,7 @@ import {Users} from "../_models/users";
 import {TranslateService} from "@ngx-translate/core";
 import {Global} from "../globals";
 import {AppComponent} from "src/app/app.component";
+import {ItemImage} from "src/app/_models/itemImage";
 
 @Component({
   selector: 'app-add',
@@ -25,59 +26,50 @@ export class AddComponent implements OnInit {
   condition: boolean = false;
   value!: Date;
   submitted = false;
+  images!: ItemImage[];
+
+  responsiveOptions!: any[];
 
   constructor(private carService: CarService, private primengConfig: PrimeNGConfig, private ngZone: NgZone,
               private http: HttpClient, public fb: FormBuilder, private router: ActivatedRoute, private route: Router,
-              private translate: TranslateService, private appComponent: AppComponent,) {
+              private translate: TranslateService, private appComponent: AppComponent) {
 
     translate.setDefaultLang(Global.language);
     translate.use(Global.language);
 
   }
 
-  addIssue() {
-    var id = this.router.snapshot.paramMap.get('id');
-    this.carService.getByIdCars(id).subscribe((car) => {
-      this.carsForm = this.fb.group({
-        name: ['', Validators.required],
-        surname: ['', Validators.required],
-        birthday: ['', Validators.required],
-        passid: ['', Validators.required],
-        balance: ['', Validators.min(car.price)],
-        timearent: ['', Validators.required],
-        carsid: [car.id],
-      })
-    })
-  }
-
-  get f() {
-    return this.carsForm.controls;
-  }
-
-  submitForm() {
-    this.submitted = true;
-    if (this.carsForm.invalid) {
-      return;
-    } else {
-      this.carService.CreateBug(this.carsForm.value).subscribe((res) => {
-        console.log('Issue added!');
-        this.ngZone.run(() => this.route.navigateByUrl('/'));
-      });
-    }
-  }
-
   //Достать с Json Id и достать нужное поле
   ngOnInit() {
+    this.images = new Array<ItemImage>(); //Обьявление колекции
+    this.responsiveOptions = [
+      {
+        breakpoint: '1024px',
+        numVisible: 5
+      },
+      {
+        breakpoint: '768px',
+        numVisible: 3
+      },
+      {
+        breakpoint: '560px',
+        numVisible: 1
+      }
+    ];
     this.primengConfig.ripple = true;
-    this.addIssue();
+
     this.router.paramMap.pipe(
-      switchMap((params: ParamMap) =>
-        this.carService.getOrder(params.get('id')!))
+      switchMap((params: ParamMap) => {
+        let id = params.get('id')!;
+        this.getByIdCarsImages(id);
+        return this.carService.getOrder(id);
+      })
     ).subscribe(t => {
-        this.car = t
+        this.car = t;
       },
     );
     this.useLanguage(Global.language);
+
   }
 
   useLanguage(language: string): void {
@@ -89,8 +81,22 @@ export class AddComponent implements OnInit {
   show() {
     if (this.carsForm.invalid || '' || null) {
       this.appComponent.showMessages = false;
-    }else {
-    this.appComponent.showMessages = true;
+    } else {
+      this.appComponent.showMessages = true;
     }
+  }
+
+  getByIdCarsImages(id: string) { //Обрабатывание в пути фото Галлерии
+    return this.http.get<string[]>(`http://localhost:8080/cars/images?id=${id}`).subscribe(prm => {
+        if (prm != null) {
+          for (let i = 0; i < prm.length; i++) {
+            let item: ItemImage;
+            item = new ItemImage(`assets/images/${prm[i]}`,
+              `assets/images/s${prm[i]}`, "", "title");
+            this.images.push(item);
+          }
+        }
+      }
+    )
   }
 }

@@ -86,7 +86,7 @@ export abstract class EntityDetailsComponent extends ComponentBase {
     }
 
     this.saveInternal();
-    // this.router.navigate(["/home"]);
+    // this.router.navigate(["/orderList"]);
   }
 
   public resetForm(resetSubmitted: boolean = false) {

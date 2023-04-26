@@ -3,7 +3,7 @@ export class Users {
     id: bigint, name: string, surname: string, birthday: Date,
     passid: string, balance: number, timearent: string, carsid: bigint,
     nameCars: string,model:string,price:bigint,damage:string,deviations:string,
-    disbalance:boolean) {
+    disbalance:boolean,userid:bigint,status:string) {
     this.id = id;
     this.name = name;
     this.surname = surname;
@@ -18,6 +18,8 @@ export class Users {
     this.damage = damage;
     this.deviations = deviations;
     this.disbalance = disbalance;
+    this.userid = userid;
+    this.status = status;
   }
 
   id: bigint;
@@ -34,4 +36,6 @@ export class Users {
   damage:string;
   deviations:string;
   disbalance:boolean;
+  userid:bigint;
+  status:string;
 }

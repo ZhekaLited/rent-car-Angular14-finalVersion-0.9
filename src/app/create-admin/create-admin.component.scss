@@ -1,0 +1,108 @@
+.img-phone {
+  width: 116%;
+  margin-top: -18%;
+  margin-left: -8%;
+  position: fixed;
+}
+.site-logo-reg {
+  height: 56px;
+  margin-top: 7px;
+  position: absolute;
+  margin-left: 113px;
+}
+.log-logo-reg {
+  position: absolute;
+  cursor: default;
+  color: black;
+  margin-left: 175px;
+  margin-top: 29px;
+  font-family: "Alfa Slab One", cursive;
+}
+.lang-icon {
+  background: transparent;
+  border: none;
+  height: 30px;
+  margin-left: 28%;
+  margin-top: 23px;
+  position: absolute;
+  cursor: pointer;
+}
+
+.lang-icon-usa {
+  background: transparent;
+  border: none;
+  margin-left: 31%;
+  margin-top: 25px;
+  position: absolute;
+  cursor: pointer;
+}
+.block {
+  padding: 470px 37px 106px !important;
+  background: white !important;
+  width: 880px !important;
+  border-radius: 20px !important;
+  position: absolute;
+  margin-left: 15% !important;
+  margin-right: auto !important;
+  margin-top: 84px !important;
+  box-shadow: 0 1px 20px rgba(0, 0, 0, 0.6);
+}
+.strelka {
+  position: absolute;
+  width: 5%;
+  margin-top: -49%;
+  margin-left: 2%;
+  cursor: pointer;
+}
+.title {
+  position: absolute;
+  cursor: default;
+  margin-top: 11%;
+  width: 20%;
+  margin-left: 40%;
+  text-align: center;
+  font-family: "Bebas Neue", cursive;
+}
+.input-login {
+  position: absolute;
+  margin-top: 22%;
+  margin-left: 35%;
+  width: 29%;
+  cursor: pointer;
+}
+.input-password {
+  position: absolute;
+  margin-top: 30%;
+  margin-left: 35%;
+  width: 29%;
+  cursor: pointer;
+}
+.button-rent {
+  position: absolute;
+  margin-top: 39%;
+  margin-left: 36%;
+  width: 27%;
+}
+.title-sec {
+  cursor: default;
+  position: absolute;
+  text-align: center;
+  width: 30%;
+  margin-top: 16%;
+  margin-left: 35%;
+  font-size: 122%;
+}
+.red-error-log {
+  position: absolute;
+  color: red;
+  margin-left: 65%;
+  margin-top: 304px;
+  cursor: default;
+}
+.red-error-pas {
+  position: absolute;
+  color: red;
+  margin-left: 65%;
+  margin-top: 410px;
+  cursor: default;
+}

@@ -8,10 +8,12 @@ import { Users } from 'src/app/_models/users';
 import { AuthenticationRequestDto } from 'src/app/_models/AuthenticationRequestDto';
 import { Configuration } from './configuration';
 import { BASE_PATH} from './variables';
+import {Admin} from "../_models/admin";
 
 @Injectable({ providedIn: 'root' })
 export class AuthenticationService {
   [x: string]: any;
+  roleAs!: any;
 
 
   protected basePath = 'http://localhost:8080';
@@ -61,7 +63,6 @@ export class AuthenticationService {
   public login(body?: AuthenticationRequestDto, observe: any = 'body', reportProgress: boolean = false ): Observable<any> {
 
     let headers = this.defaultHeaders;
-
     // authentication (Bearer) required
     if (this.configuration.accessToken) {
       const accessToken = typeof this.configuration.accessToken === 'function'
@@ -99,6 +100,7 @@ export class AuthenticationService {
         headers: headers,
         observe: observe,
         reportProgress: reportProgress
+
       },
     );
   }

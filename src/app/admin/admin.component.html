@@ -8,13 +8,28 @@
   <img class="site-logo-reg" src="assets/images/logo.png">
 </div>
 <div>
-  <a class="log-logo-reg" routerLink="/" routerLinkActive="active">SMOTRA</a>
+  <a class="log-logo-reg">SMOTRA</a>
 </div>
 <div>
-  <button class="lang-icon" (click)="useLanguage('ru')"><img src="assets/images/russia.png" alt="ruflag" height="28px">
+  <button class="lang-icon" (click)="useLanguage('ru')" pTooltip="{{'ADMIN.RUSSIA' | translate}}"
+          tooltipPosition="bottom"><img src="assets/images/russia.png" alt="ruflag" height="28px">
   </button>
-  <button class="lang-icon-usa" (click)="useLanguage('en')"><img src="assets/images/usa.png" alt="ruflag" height="25px">
+  <button class="lang-icon-usa" (click)="useLanguage('en')" pTooltip="{{'ADMIN.ENGLISH' | translate}}"
+          tooltipPosition="bottom"><img src="assets/images/usa.png" alt="ruflag" height="25px">
   </button>
+</div>
+  <div>
+  <p-button label="{{'ADMIN.EXIT'|translate}}"
+            styleClass="p-button-outlined p-button-danger"(click)="clear()" class="exit-button">
+  </p-button>
+</div>
+<div>
+  <p-button label="{{'ADMIN.CAR'|translate}}" styleClass="p-button-outlined p-button-info" class="addCar-button"
+            routerLink="/addCar" routerLinkActive="active"></p-button>
+</div>
+<div class="admin-button">
+  <p-button icon="pi pi-user" styleClass="p-button-info" pTooltip="{{'ADMIN.ADMIN' | translate}}"
+            tooltipPosition="bottom"  routerLink="/createAdmin" routerLinkActive="active"></p-button>
 </div>
 <div class="card" style=" margin-top: 104px;position: absolute; margin-left: -6px; width: 100%;cursor: default;">
   <p-table [value]="users" [scrollable]="true" scrollHeight="544px">
@@ -49,9 +64,14 @@
         <td>{{users.deviations}}</td>
         <td>
           <div class="p-dealog-window p-dialogtitle p-dialog-button">
-          <p-button [disabled]="users.disbalance" icon="pi pi-check" (click)="updateBalance(users.id,users.balance,users.price)" styleClass="icon p-button-success"></p-button>
-                          <p-button icon="pi pi-times" styleClass="p-button-danger" [disabled]="users.disbalance" class="icon-danger" (click)="showDialog(users.id)"></p-button>
-            <p-dialog header="{{'ADMIN.REPORT'|translate}}" [(visible)]="visible" [modal]="true" [style]="{ width: '50vw' }" [draggable]="false" [resizable]="false">
+          <p-button [disabled]="users.disbalance" icon="pi pi-check"
+                    (click)="updateBalance(users.id,users.balance,users.price)" styleClass="icon p-button-success"
+                    pTooltip="{{'ADMIN.ACCEPT'| translate}}" tooltipPosition="bottom" ></p-button>
+                          <p-button icon="pi pi-times" styleClass="p-button-danger" [disabled]="users.disbalance"
+                                    class="icon-danger" (click)="showDialog(users.id)"
+                                    pTooltip="{{'ADMIN.REJECT'| translate}}" tooltipPosition="bottom"></p-button>
+            <p-dialog header="{{'ADMIN.REPORT'|translate}}" [(visible)]="visible" [modal]="true"
+                      [style]="{ width: '50vw' }" [draggable]="false" [resizable]="false">
               <form [formGroup]="usersForm" (ngSubmit)="submitForm()">
               <input class="window-write" type="text"  formControlName="deviations" required>
               <button pButton pRipple type="submit" (click)="closeTab()" label="{{'ADMIN.SEND' | translate}}"
@@ -60,7 +80,10 @@
             </p-dialog>
           </div>
         </td>
-        <td><p-button icon="pi pi-bell" styleClass="p-button-rounded p-button-danger p-button-text p-button-raised" (click)="updateDamage(users.id)"></p-button>
+        <td><p-button icon="pi pi-bell"
+                      styleClass="p-button-rounded p-button-danger p-button-text p-button-raised"
+                      (click)="updateDamage(users.id)" pTooltip="{{'ADMIN.DAMAGE' | translate}}"
+                      tooltipPosition="bottom"></p-button>
         </td>
         <td><img src="assets/images/{{users.damage}}" alt="" class="icon-damage"></td>
       </tr>

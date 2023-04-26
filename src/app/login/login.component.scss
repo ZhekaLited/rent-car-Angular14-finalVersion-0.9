@@ -12,7 +12,7 @@
 }
 .log-logo-reg {
   position: absolute;
-  cursor: pointer;
+  cursor: default;
   color: black;
   margin-left: 175px;
   margin-top: 29px;
@@ -62,12 +62,14 @@
   margin-left: 45% !important;
 }
 .window-write {
+  cursor: pointer;
   margin-left: -31%;
   position: absolute;
   width: 70%;
   margin-top: -19%;
 }
 .window-pass {
+  cursor: pointer;
   width: 70%;
   position: absolute;
   margin-top: 0%;
@@ -91,4 +93,11 @@
   margin-left: 42%;
   margin-top: 3%;
   color: red;
+}
+.strelka {
+  position: absolute;
+  width: 6%;
+  margin-top: -75%;
+  margin-left: 2%;
+  cursor: pointer;
 }
