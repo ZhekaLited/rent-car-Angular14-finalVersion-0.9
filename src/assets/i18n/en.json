@@ -75,6 +75,16 @@
     "NAME": "Cars Name",
     "MODEL": "Model",
     "PRICE": "Price",
-    "ADD": "ADD"
+    "FURTH": "Further",
+    "RELEASE": "Release",
+    "KPP": "KPP",
+    "DVIGATEL": "Dvigatel",
+    "MESTA": "Mesta",
+    "ADD": "ADD",
+    "UPLOAD": "Upload Images",
+    "SELECT": "Select the photos, that will be used as a demonstration of the car on the page",
+    "CHOOSE": "Choose",
+    "MAIN": "Main Photo",
+    "INFORMATION": "Detailed Photos"
   }
 }

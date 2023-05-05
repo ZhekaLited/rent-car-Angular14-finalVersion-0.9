@@ -24,21 +24,79 @@
        tooltipPosition="bottom">
 </div>
 <div>
-  <h1 class="title">{{'CAR.TITLE'|translate}}</h1>
-  <input type="text" pInputText class="window-write"
-         placeholder="{{'CAR.NAME'|translate}}" >
-  <input type="text" pInputText class="window-writes"
-         placeholder="{{'CAR.MODEL'|translate}}">
-  <input type="text" pInputText class="window-writet"
-         placeholder="{{'CAR.PRICE'|translate}}">
-  <input type="text" pInputText class="window-writefv"
-         placeholder="release">
-  <input type="text" pInputText class="window-writesi"
-         placeholder="kpp">
-  <input type="text" pInputText class="window-writesev"
-         placeholder="dvigatel">
-  <input type="text" pInputText class="window-writeeight"
-         placeholder="mesta">
-<!--  <button type="submit"  pButton pRipple label="{{'CAR.ADD'| translate}}"-->
-<!--          class="p-button-success button-rent"></button>-->
+  <h1 class="title">{{'CAR.TITLE'| translate}}</h1>
+  <form [formGroup]="FormCars" (ngSubmit)="submitForm()">
+  <input type="text" pInputText class="window-write" formControlName="name"
+         placeholder="{{'CAR.NAME'| translate}}"
+         [ngClass]="{ 'is-invalid': submitted && f['name'].errors }"/>
+    <div *ngIf="submitted && f['name'].errors" class="invalid-feedback red-error">
+      <div *ngIf="f['name'].errors['required']">*</div>
+    </div>
+  <input type="text" pInputText class="window-writes" formControlName="model"
+         placeholder="{{'CAR.MODEL'| translate}}"
+         [ngClass]="{ 'is-invalid': submitted && f['model'].errors }"/>
+    <div *ngIf="submitted && f['model'].errors" class="invalid-feedback red-errorm">
+      <div *ngIf="f['model'].errors['required']">*</div>
+    </div>
+  <input type="text" pInputText class="window-writet" formControlName="price"
+         placeholder="{{'CAR.PRICE'| translate}}" required
+         [ngClass]="{ 'is-invalid': submitted && f['price'].errors }"/>
+    <div *ngIf="submitted && f['price'].errors" class="invalid-feedback red-errorp">
+      <div *ngIf="f['price'].errors['required']">*</div>
+    </div>
+  <input type="text" pInputText class="window-writefv" formControlName="release"
+         placeholder="{{'CAR.RELEASE'| translate}}" required
+         [ngClass]="{ 'is-invalid': submitted && f['release'].errors }"/>
+    <div *ngIf="submitted && f['release'].errors" class="invalid-feedback red-errorr">
+      <div *ngIf="f['release'].errors['required']">*</div>
+    </div>
+  <input type="text" pInputText class="window-writesi" formControlName="kpp"
+         placeholder="{{'CAR.KPP'| translate}}"
+         [ngClass]="{ 'is-invalid': submitted && f['kpp'].errors }"/>
+    <div *ngIf="submitted && f['kpp'].errors" class="invalid-feedback red-errork">
+      <div *ngIf="f['kpp'].errors['required']">*</div>
+    </div>
+  <input type="text" pInputText class="window-writesev" formControlName="dvigatel"
+         placeholder="{{'CAR.DVIGATEL'| translate}}"
+         [ngClass]="{ 'is-invalid': submitted && f['dvigatel'].errors }"/>
+    <div *ngIf="submitted && f['dvigatel'].errors" class="invalid-feedback red-errord">
+      <div *ngIf="f['dvigatel'].errors['required']">*</div>
+    </div>
+  <input type="text" pInputText class="window-writeeight" formControlName="mesta"
+         placeholder="{{'CAR.MESTA'| translate}}"
+         [ngClass]="{ 'is-invalid': submitted && f['mesta'].errors }"/>
+    <div *ngIf="submitted && f['mesta'].errors" class="invalid-feedback red-errormo">
+      <div *ngIf="f['mesta'].errors['required']">*</div>
+    </div>
+    <input type="hidden" formControlName="image">
+    <button type="button" (click)="showDialog()" pButton pRipple label="{{'CAR.FURTH'| translate}}"
+            class="p-button-success button-rent"></button>
+  <div class="block-white title-header">
+    <p-dialog header="{{'CAR.UPLOAD'| translate}}" [(visible)]="visible" [modal]="true" [style]="{ width: '50vw' }"
+              [draggable]="false" [resizable]="false">
+      <p class="title-sec">{{'CAR.SELECT'| translate}}</p>
+      <div class="fileName card flex justify-content-center button-image whiteblock-photos whiteblock-photos-fir wrapper">
+        <ul type="square" class="main-photo">
+          <li>{{'CAR.MAIN'| translate}}</li>
+        </ul>
+        <ul type="square" class="galleria-photo">
+          <li>{{'CAR.INFORMATION'| translate}}</li>
+        </ul>
+        <p-fileUpload class="button-oneimage" mode="basic" chooseLabel="{{'CAR.CHOOSE'|translate}}" name="file" [disabled]="visibleButton(fileFat)" url="http://localhost:8080/uploadFile" accept="image/*" (onUpload)="onUpload($event)"></p-fileUpload>
+        <p-toast class="toast toast-font"></p-toast>
+        <p-fileUpload name="files" url="http://localhost:8080/uploadMultipleFiles" [disabled]="visibleButton(filesFat)" (onUpload)="onUploads($event)"
+                      [multiple]="true" accept="image/*">
+          <ng-template pTemplate="content">
+            <ul *ngIf="uploadedFiles.length">
+              <li class="li-message" *ngFor="let file of uploadedFiles">{{ file.name }}</li>
+            </ul>
+          </ng-template>
+        </p-fileUpload>
+      </div>
+      <button type="submit" pButton pRipple label="{{'CAR.ADD'| translate}}"
+              class="p-button-success button-imageupload"></button>
+    </p-dialog>
+  </div>
+  </form>
+
 </div>

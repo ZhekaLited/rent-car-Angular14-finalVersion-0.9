@@ -29,6 +29,8 @@ import { PaperworkComponent } from './paperwork/paperwork.component';
 import { UserComponent } from './user/user.component';
 import { CreateAdminComponent } from './create-admin/create-admin.component';
 import { AddCarComponent } from './add-car/add-car.component';
+import { FileUploadModule } from 'primeng/fileupload';
+
 
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
   return new TranslateHttpLoader(http);
@@ -50,6 +52,7 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
     BrowserModule,
     ToastModule,
     TableModule,
+    FileUploadModule,
     ConfirmDialogModule,
     InputTextModule,
     DialogModule,

@@ -86,4 +86,13 @@ export class CarService {
       )
       .pipe(retry(1));
   }
+
+  CreateCar(data: any) {
+    return this.http
+      .post<Cars>('http://localhost:8080/cars/addCar',
+        JSON.stringify(data),
+        this.httpOptions
+      )
+      .pipe(retry(1));
+  }
 }

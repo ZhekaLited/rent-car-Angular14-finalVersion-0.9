@@ -4,12 +4,14 @@
   margin-left: -8%;
   position: fixed;
 }
+
 .site-logo-reg {
   height: 56px;
   margin-top: 7px;
   position: absolute;
   margin-left: 113px;
 }
+
 .log-logo-reg {
   position: absolute;
   cursor: default;
@@ -18,6 +20,7 @@
   margin-top: 29px;
   font-family: "Alfa Slab One", cursive;
 }
+
 .block {
   padding: 470px 37px 106px !important;
   background: white !important;
@@ -29,6 +32,7 @@
   margin-top: 84px !important;
   box-shadow: 0 1px 20px rgba(0, 0, 0, 0.6);
 }
+
 .strelka {
   position: absolute;
   width: 5%;
@@ -36,6 +40,7 @@
   margin-left: 2%;
   cursor: pointer;
 }
+
 .lang-icon {
   background: transparent;
   border: none;
@@ -54,6 +59,7 @@
   position: absolute;
   cursor: pointer;
 }
+
 .title {
   position: absolute;
   cursor: default;
@@ -63,6 +69,7 @@
   text-align: center;
   font-family: "Bebas Neue", cursive;
 }
+
 .window-write {
   width: 291px !important;
   height: 48px !important;
@@ -80,6 +87,7 @@
 .window-write:focus {
   border: 3px solid #555 !important;
 }
+
 .window-writes {
   width: 291px !important;
   height: 48px !important;
@@ -93,9 +101,11 @@
   margin-top: 19%;
   cursor: pointer;
 }
+
 .window-writes:focus {
   border: 3px solid #555 !important;
 }
+
 .window-writet {
   width: 291px !important;
   height: 48px !important;
@@ -109,9 +119,11 @@
   margin-top: 25%;
   cursor: pointer;
 }
+
 .window-writet:focus {
   border: 3px solid #555 !important;
 }
+
 .window-writef {
   width: 291px !important;
   height: 48px !important;
@@ -125,9 +137,11 @@
   margin-top: 25%;
   cursor: pointer;
 }
+
 .window-writef:focus {
   border: 3px solid #555 !important;
 }
+
 .window-writefv {
   width: 291px !important;
   height: 48px !important;
@@ -141,9 +155,11 @@
   margin-top: 31%;
   cursor: pointer;
 }
+
 .window-writefv:focus {
   border: 3px solid #555 !important;
 }
+
 .window-writesi {
   width: 291px !important;
   height: 48px !important;
@@ -157,9 +173,11 @@
   margin-top: 25%;
   cursor: pointer;
 }
+
 .window-writesi:focus {
   border: 3px solid #555 !important;
 }
+
 .window-writesev {
   width: 291px !important;
   height: 48px !important;
@@ -173,9 +191,11 @@
   margin-top: 37%;
   cursor: pointer;
 }
+
 .window-writesev:focus {
   border: 3px solid #555 !important;
 }
+
 .window-writeeight {
   width: 291px !important;
   height: 48px !important;
@@ -189,12 +209,178 @@
   margin-top: 31%;
   cursor: pointer;
 }
+
 .window-writeeight:focus {
   border: 3px solid #555 !important;
 }
+
 .button-rent {
   position: absolute;
-  margin-top: 39%;
+  margin-top: 44%;
   margin-left: 35%;
   width: 27%;
+}
+
+.button-image {
+  margin-top: 14%;
+  position: absolute;
+  margin-left: 28%;
+}
+
+.button-image-fir {
+  position: absolute;
+  margin-top: 37%;
+  margin-left: 52%;
+}
+
+.block-white ::ng-deep .p-dialog .p-dialog-content {
+  background: #ffffff;
+  color: #495057;
+  padding: 0 7.5rem 36rem 4.5rem;
+  overflow: hidden;
+}
+
+.whiteblock-photos ::ng-deep .p-fileupload .p-fileupload-content {
+  background: #ffffff;
+  padding: 2rem 1rem;
+  border: 1px solid #dee2e6;
+  width: 107%;
+  position: absolute;
+  color: #495057;
+  margin-left: -38%;
+  border-bottom-right-radius: 6px;
+  border-bottom-left-radius: 6px;
+  max-height: 191px;
+  overflow-y: scroll;
+}
+
+.whiteblock-photos-fir ::ng-deep .p-fileupload .p-fileupload-buttonbar {
+  background: #f8f9fa;
+  padding: 1.25rem;
+  border: 1px solid #dee2e6;
+  margin-top: 23%;
+  width: 107%;
+  color: #343a40;
+  margin-left: -38%;
+  border-bottom: 0 none;
+  border-top-right-radius: 6px;
+  border-top-left-radius: 6px;
+}
+
+.title-header ::ng-deep .p-dialog .p-dialog-header .p-dialog-title {
+  font-weight: 700;
+  font-size: 1.25rem;
+  margin-top: 4%;
+  text-align: center;
+  width: 37%;
+  margin-left: 32%;
+  cursor: default;
+}
+
+.title-sec {
+  position: absolute;
+  text-align: center;
+  margin-top: 0%;
+  margin-left: -3%;
+  width: 85%;
+  cursor: default;
+}
+
+.button-oneimage {
+  position: absolute;
+  margin-left: -2%;
+  margin-top: 0%;
+}
+
+.red-error {
+  cursor: default;
+  position: absolute;
+  color: red;
+  margin-top: 266px;
+  margin-left: 603px;
+}
+
+.red-errorm {
+  cursor: default;
+  position: absolute;
+  color: red;
+  margin-top: 266px;
+  margin-left: 981px;
+}
+
+.red-errorp {
+  cursor: default;
+  position: absolute;
+  color: red;
+  margin-top: 345px;
+  margin-left: 603px;
+}
+
+.red-errorr {
+  cursor: default;
+  position: absolute;
+  color: red;
+  margin-top: 423px;
+  margin-left: 603px;
+}
+
+.red-errork {
+  cursor: default;
+  position: absolute;
+  color: red;
+  margin-top: 345px;
+  margin-left: 981px;
+}
+
+.red-errord {
+  cursor: default;
+  position: absolute;
+  color: red;
+  margin-top: 500px;
+  margin-left: 603px;
+}
+
+.red-errormo {
+  cursor: default;
+  position: absolute;
+  color: red;
+  margin-top: 422px;
+  margin-left: 981px;
+}
+
+.main-photo {
+  margin-top: -29px;
+  cursor: default;
+  position: absolute;
+  margin-left: -30px;
+  text-align: center;
+}
+.galleria-photo {
+  margin-top: 62px;
+  cursor: default;
+  position: absolute;
+  margin-left: -31px;
+  text-align: center;
+}
+
+.button-imageupload {
+  position: absolute;
+  margin-top: 75%;
+  margin-left: 25%;
+  width: 27%;
+}
+.toast ::ng-deep .p-toast-top-right {
+  top: 26px;
+  right: -46%;
+}
+.toast-font ::ng-deep .p-toast .p-toast-message .p-toast-message-content .p-toast-summary {
+  font-weight: 700;
+  cursor: default;
+}
+.li-message {
+  cursor: default;
+}
+.fileName ::ng-deep .p-fileupload .p-fileupload-row > div {
+  padding: 1rem 1rem;
+  cursor: default;
 }

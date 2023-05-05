@@ -94,7 +94,7 @@ export class LoginComponent extends EntityDetailsComponent implements OnInit {
           this.router.navigateByUrl('/admin');
         }
         if (this.role === "USER") {
-          this.router.navigate(['/orderList/'],{ queryParams: {userid: this.userid}});
+          this.router.navigate(['/orderList/'],{queryParams: {userid: this.userid}});
         }
       })
   }

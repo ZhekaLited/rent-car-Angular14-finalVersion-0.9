@@ -57,7 +57,7 @@
     <ng-template let-cars pTemplate="item">
       <div class="product-item">
         <div class="product-item-content">
-          <img class="img-scroll" src="assets/images/{{cars.image}}">
+          <img class="img-scroll" src="http://localhost:8080/downloadFile/{{cars.image}}">
           <div>
             <h4 class="mb-1 text-scroll">{{cars.name}}</h4>
             <h4 class="mb-1 text-scroll-sec">{{cars.model}}</h4>
@@ -100,7 +100,7 @@
         <div *ngIf="submitted && f['password'].errors" class="invalid-feedback red-error-pas">
           <div *ngIf="f['password'].errors['required']">*</div>
         </div>
-        <p-button type="submit"  styleClass="p-button-success button-sub button-scroll"
+        <p-button type="submit" styleClass="p-button-success button-sub button-scroll"
                   label="{{'HOME.SUBMIT'|translate}}"
                   style="position: absolute;margin-top: 30%;margin-left: 39%;"></p-button>
       </form>
