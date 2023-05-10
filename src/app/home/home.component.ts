@@ -83,13 +83,9 @@ export class HomeComponent  implements OnInit {
   submit() {
     this.submitted = true;
     if (this.Form.invalid) {
-      return;
-    } else {
-      this.carService.CreateAccount(this.Form.value).subscribe((res) => {
-        console.log('Issue added!');
-        this.getRoleByLoginPassword(this.Form.value)
-      });
+    return;
     }
+      this.isExistsUserCheck(this.Form.value);
   }
 
   getByIdCars(id: bigint | null): Observable<Cars> {
@@ -106,6 +102,10 @@ export class HomeComponent  implements OnInit {
   show() {
     if (this.appComponent.showMessages)
       this.messages = [{ severity: 'success', summary: 'Successful', detail: 'Your application is under consideration' }];
+  }
+
+  notShow() {
+    this.appComponent.showMessages = false;
   }
 
   showDialog(id: any) {
@@ -126,6 +126,18 @@ export class HomeComponent  implements OnInit {
       let string = JSON.stringify(res); //Запарсить. Делается потому что обьект не парсится
       this.iduser = JSON.parse(string).id;
       this.ngZone.run(() => this.router.navigate(['/paperwork/' + this.id],  { queryParams: {iduser: this.iduser}})); //Таким образом отправляет id на другой компонент
+    })
+  }
+
+  isExistsUserCheck(body:string) {
+    this.http.post<string>('http://localhost:8080/cars/getUser',
+      body).subscribe(res => {
+        if(res == null) {
+          this.carService.CreateAccount(this.Form.value).subscribe((res) => {
+            console.log('Issue added!');
+            this.getRoleByLoginPassword(this.Form.value)
+          });
+        }
     })
   }
 }

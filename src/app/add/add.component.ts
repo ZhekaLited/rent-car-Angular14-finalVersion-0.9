@@ -91,8 +91,8 @@ export class AddComponent implements OnInit {
         if (prm != null) {
           for (let i = 0; i < prm.length; i++) {
             let item: ItemImage;
-            item = new ItemImage(`assets/images/${prm[i]}`,
-              `assets/images/s${prm[i]}`, "", "title");
+            item = new ItemImage(`http://localhost:8080/downloadFile/${prm[i]}`,
+              `http://localhost:8080/downloadFile/${prm[i]}`, "", "title");
             this.images.push(item);
           }
         }

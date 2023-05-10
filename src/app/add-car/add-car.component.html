@@ -69,6 +69,7 @@
       <div *ngIf="f['mesta'].errors['required']">*</div>
     </div>
     <input type="hidden" formControlName="image">
+    <input type="hidden" formControlName="carsimage">
     <button type="button" (click)="showDialog()" pButton pRipple label="{{'CAR.FURTH'| translate}}"
             class="p-button-success button-rent"></button>
   <div class="block-white title-header">
@@ -84,7 +85,7 @@
         </ul>
         <p-fileUpload class="button-oneimage" mode="basic" chooseLabel="{{'CAR.CHOOSE'|translate}}" name="file" [disabled]="visibleButton(fileFat)" url="http://localhost:8080/uploadFile" accept="image/*" (onUpload)="onUpload($event)"></p-fileUpload>
         <p-toast class="toast toast-font"></p-toast>
-        <p-fileUpload name="files" url="http://localhost:8080/uploadMultipleFiles" [disabled]="visibleButton(filesFat)" (onUpload)="onUploads($event)"
+        <p-fileUpload name="files" url="http://localhost:8080/uploadMultipleFiles" [disabled]="visibleButtons(filesFat)" (onUpload)="onUploads($event)"
                       [multiple]="true" accept="image/*">
           <ng-template pTemplate="content">
             <ul *ngIf="uploadedFiles.length">

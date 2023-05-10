@@ -20,7 +20,7 @@ export class AddCarComponent implements OnInit {
   visible!: boolean;
   fileFat!: any;
   ImageCars!: FormGroup;
-  filesFat!: any;
+  filesFat: any[] = [];
 
   constructor(private translate: TranslateService,
               public fb: FormBuilder, private ngZone: NgZone,
@@ -62,14 +62,15 @@ export class AddCarComponent implements OnInit {
       kpp: ['', Validators.required],
       dvigatel: ['', Validators.required],
       mesta: ['', Validators.required],
-      image: [this.fileFat]
+      image: [this.filesFat],
+      carsimage: [this.filesFat]
     });
   }
 
   onUploads(event: any) {
     for (let file of event.files) {
       this.uploadedFiles.push(file);
-      this.filesFat = file.name;
+      this.filesFat.push(file.name);
       console.log(this.filesFat)
     }
     this.messageService.add({severity: 'info', summary: 'File Uploaded', detail: ''});
@@ -80,6 +81,14 @@ export class AddCarComponent implements OnInit {
       return true;
     } else {
       return false;
+    }
+  }
+
+  visibleButtons(event:any=[]) {
+    if (event == null || event.length == 0) {
+      return false;
+    } else {
+      return true;
     }
   }
 
@@ -98,6 +107,7 @@ export class AddCarComponent implements OnInit {
     } else {
       this.FormCars.patchValue({ // this.FormCars.patchValue Нужен для присвоению полю значение (Если не подставляется!!!)
         image: this.fileFat,
+        carsimage: this.filesFat
       })
       this.carService.CreateCar(this.FormCars.value).subscribe((res) => {
         console.log('Issue added!');

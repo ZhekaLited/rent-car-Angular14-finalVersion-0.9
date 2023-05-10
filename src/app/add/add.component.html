@@ -29,7 +29,7 @@
       <h1 class="text-mesta">{{car.mesta}}</h1>
     </div>
   </div>
-  <div class="card" style="margin-top: -34%;margin-left: 1%;width: 45%;position: absolute;">
+  <div class="card photos" style="margin-top: -36%;margin-left: 1%;width: 45%;position: absolute;">
     <p-galleria [value]="images" [responsiveOptions]="responsiveOptions" [containerStyle]="{ 'max-width': '640px' }"
                 [numVisible]="5">
       <ng-template pTemplate="item" let-cars>
@@ -37,7 +37,9 @@
       </ng-template>
       <ng-template pTemplate="thumbnail" let-cars>
         <div class="grid grid-nogutter justify-content-center">
-          <img [src]="cars.thumbnailImageSrc"/>
+          <img [src]="cars.thumbnailImageSrc" style="
+    width: 100%;
+"/>
         </div>
       </ng-template>
     </p-galleria>

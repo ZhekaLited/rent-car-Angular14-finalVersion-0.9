@@ -85,10 +85,10 @@ export class PaperworkComponent implements OnInit {
   }
 
   show() {
-    if (this.carsForm.invalid || '' || null) {
-      this.appComponent.showMessages = false;
-    } else {
+    if (this.carsForm != null) {
       this.appComponent.showMessages = true;
+    } else if (this.carsForm == null){
+      this.appComponent.showMessages = false;
     }
   }
 }

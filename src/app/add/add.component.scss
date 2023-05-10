@@ -84,6 +84,9 @@
   font-family: "Bebas Neue", cursive;
   cursor: default;
 }
+.imageSize {
+  width: 900%;
+}
 
 .my-component ::ng-deep .p-inputtext {
   width: 291px !important;
@@ -246,6 +249,9 @@
   margin-left: -154%;
   cursor: pointer;
 }
-
+.photos ::ng-deep .p-galleria .p-galleria-thumbnail-container {
+  background: rgba(0, 0, 0, 0.9);
+  padding: 1rem 1.3rem;
+}
 
 
