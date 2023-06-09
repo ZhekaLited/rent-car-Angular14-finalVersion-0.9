@@ -1,10 +1,8 @@
 import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute, ParamMap, Router} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
 import {TranslateService} from "@ngx-translate/core";
 import {Global} from "../globals";
-import {switchMap} from "rxjs";
 import {CarService} from "../_service/car.service";
-import {Users} from "../_models/users";
 
 @Component({
   selector: 'app-user',
@@ -13,7 +11,8 @@ import {Users} from "../_models/users";
 })
 export class UserComponent implements OnInit {
 
-  user!: Users;
+  user!: any;
+  userid!:any;
 
   constructor(private route: Router, private translate: TranslateService,
               private router: ActivatedRoute, private carService: CarService) {
@@ -23,8 +22,11 @@ export class UserComponent implements OnInit {
 
   ngOnInit() {
     let id = this.router.snapshot.queryParamMap.get('userid');
+    this.userid = id;
     return this.carService.getUser(id).subscribe(t => {
-        this.user = t;
+        for (let nameUser of t) {
+          this.user = t;
+        }
       }
     );
     this.useLanguage(Global.language);
@@ -36,8 +38,7 @@ export class UserComponent implements OnInit {
     this.translate.use(Global.language);
   }
 
-  public clear() {
-    localStorage.removeItem("access_token");
-    this.route.navigateByUrl("/");
+  home() {
+    this.route.navigate(['/'],{queryParams: {userid: this.userid}});
   }
 }

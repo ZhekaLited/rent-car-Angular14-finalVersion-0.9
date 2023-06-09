@@ -12,7 +12,6 @@ export class AppComponent implements OnInit {
   showMessages!: boolean;
   lang!: string;
 
-
   constructor(private translate: TranslateService) {
     this.showMessages = false;
   }

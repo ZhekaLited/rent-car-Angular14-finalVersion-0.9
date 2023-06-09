@@ -1,0 +1,82 @@
+.block {
+  padding: 470px 37px 106px !important;
+  background: white !important;
+  width: 965px !important;
+  border-radius: 20px !important;
+  position: absolute;
+  margin-left: 12% !important;
+  margin-right: auto !important;
+  margin-top: 84px !important;
+  box-shadow: 0 1px 20px rgba(0, 0, 0, 0.6);
+}
+
+.img-phone {
+  width: 116%;
+  margin-top: -18%;
+  margin-left: -8%;
+  position: fixed;
+}
+.lang-icon {
+  background: transparent;
+  border: none;
+  height: 30px;
+  margin-left: 28%;
+  margin-top: 23px;
+  position: absolute;
+  cursor: pointer;
+}
+
+.lang-icon-usa {
+  background: transparent;
+  border: none;
+  margin-left: 31%;
+  margin-top: 25px;
+  position: absolute;
+  cursor: pointer;
+}
+.site-logo-reg {
+  height: 56px;
+  margin-top: 7px;
+  position: absolute;
+  margin-left: 113px;
+}
+.log-logo-reg {
+  position: absolute;
+  cursor: default;
+  color: black;
+  margin-left: 175px;
+  margin-top: 29px;
+  font-family: "Alfa Slab One", cursive;
+}
+.table ::ng-deep .p-datatable {
+  position: absolute;
+  width: 65%;
+  margin-top: -47%;
+  margin-left: 13%;
+}
+.icon-danger {
+  margin-left: 2px;
+}
+.icon-damage {
+  width: 42px;
+  margin-left: -23px;
+  margin-top: 4px;
+}
+.strelka {
+  position: absolute;
+  width: 4%;
+  margin-top: -45%;
+  margin-left: 2%;
+  cursor: pointer;
+}
+.icon-danger {
+  margin-left: 2px;
+}
+.scroll ::ng-deep .p-datatable>.p-datatable-wrapper {
+  overflow: auto;
+  overflow-x: hidden;
+}
+.color-back ::ng-deep .p-component-overlay {
+  background-color: rgb(0 0 0 / 39%);
+  transition-duration: 0.2s;
+}

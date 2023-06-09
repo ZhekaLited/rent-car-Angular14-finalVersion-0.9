@@ -4,6 +4,12 @@
   margin-left: -8%;
   position: fixed;
 }
+.table {
+  position: absolute;
+  margin-top: -38%;
+  margin-left: -2%;
+  width: 97%;
+}
 .site-logo-reg {
   height: 56px;
   margin-top: 7px;
@@ -54,9 +60,9 @@
 }
 .order {
   margin-top: -45%;
-  width: 17%;
+  width: 19%;
   text-align: center;
-  margin-left: 39%;
+  margin-left: 37%;
   position: absolute;
   font-size: 35px;
   text-shadow: 0 0 black;
@@ -147,16 +153,15 @@
   cursor: default;
   position: absolute;
   margin-top: 2%;
-  margin-left: 11%;
+  margin-left: 13%;
   font-size: 160%;
   text-align: center;
   width: 60%;
   font-family: "Comfortaa", cursive;
 }
 .img-status {
-  position: absolute;
-  width: 6%;
-  margin-left: 52%;
+  width: 40%;
+  margin-left: 4%;
 }
 .devit {
   cursor: default;
@@ -167,4 +172,11 @@
   text-align: center;
   width: 60%;
   font-family: "Oswald", sans-serif;
+}
+.strelka {
+  position: absolute;
+  width: 4%;
+  margin-top: -45%;
+  margin-left: 2%;
+  cursor: pointer;
 }

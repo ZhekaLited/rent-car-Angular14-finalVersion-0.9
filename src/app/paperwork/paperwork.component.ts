@@ -10,12 +10,13 @@ import {AppComponent} from "../app.component";
 import {MessageService} from "primeng/api";
 import {Admin} from "../_models/admin";
 import {HomeComponent} from "src/app/home/home.component";
+import {Users} from "../_models/users";
 
 @Component({
   selector: 'app-paperwork',
   templateUrl: './paperwork.component.html',
   styleUrls: ['./paperwork.component.scss'],
-  providers: [MessageService,HomeComponent]
+  providers: [MessageService, HomeComponent]
 
 })
 export class PaperworkComponent implements OnInit {
@@ -25,12 +26,30 @@ export class PaperworkComponent implements OnInit {
   submitted = false;
   admin: Admin[] = [];
   sub!: any;
+  users!: Users;
+  userid!: any;
 
-  constructor(private translate: TranslateService,private router: ActivatedRoute,private carService: CarService,
-              public fb: FormBuilder, private route: Router,private ngZone: NgZone,private appComponent: AppComponent,
+  constructor(private translate: TranslateService, private router: ActivatedRoute, private carService: CarService,
+              public fb: FormBuilder, private route: Router, private ngZone: NgZone, private appComponent: AppComponent,
               private homeComponent: HomeComponent) {
     translate.setDefaultLang(Global.language);
     translate.use(Global.language);
+  }
+
+  ngOnInit() {
+    this.addIssue();
+    let userid = this.router.snapshot.queryParamMap.get('userid');
+    this.userid = userid;
+    this.useLanguage(Global.language);
+    this.router.paramMap.pipe(
+      switchMap((params: ParamMap) => {
+        let id = params.get('id')!;
+        return this.carService.getOrder(id);
+      })
+    ).subscribe(t => {
+        this.car = t;
+      },
+    );
   }
 
   addIssue() {
@@ -44,7 +63,21 @@ export class PaperworkComponent implements OnInit {
         balance: ['', Validators.min(car.price)],
         timearent: ['', Validators.required],
         carsid: [car.id],
-        userid:[this.router.snapshot.queryParamMap.get('iduser')] //Таким образом принмает значения с url поля к примеру id
+        userid: [this.router.snapshot.queryParamMap.get('userid')] //Таким образом принмает значения с url поля к примеру id
+      })
+    })
+
+    var idd = this.router.snapshot.queryParamMap.get('userid')!;
+    this.carService.getUserForForm(idd).subscribe((users) => {
+      this.carsForm = this.fb.group({
+        name: [users.name],
+        surname: [users.surname],
+        birthday: [users.birthday],
+        passid: [users.passid],
+        balance: [users.balance],
+        timearent: [users.timearent],
+        carsid: [this.router.snapshot.paramMap.get('id')],
+        userid: [this.router.snapshot.queryParamMap.get('userid')]
       })
     })
   }
@@ -60,35 +93,29 @@ export class PaperworkComponent implements OnInit {
     } else {
       this.carService.CreateBug(this.carsForm.value).subscribe((res) => {
         console.log('Issue added!');
-        this.ngZone.run(() => this.route.navigateByUrl('/'));
+        this.route.navigate(['/'],{queryParams: {userid: this.userid}});
+        // this.ngZone.run(() => this.route.navigateByUrl('/'));
       });
     }
   }
 
-  ngOnInit() {
-    this.addIssue();
-    this.useLanguage(Global.language);
-    this.router.paramMap.pipe(
-      switchMap((params: ParamMap) => {
-        let id = params.get('id')!;
-        return this.carService.getOrder(id);
-      })
-    ).subscribe(t => {
-        this.car = t;
-      },
-    );
-  }
+
   useLanguage(language: string): void {
     Global.language = language;
     window.localStorage.setItem('access_language', language);
     this.translate.use(Global.language);
   }
 
+  home() {
+    this.route.navigate(['/'],{queryParams: {userid: this.userid}});
+  }
+
   show() {
     if (this.carsForm != null) {
       this.appComponent.showMessages = true;
-    } else if (this.carsForm == null){
+    } else if (this.carsForm == null) {
       this.appComponent.showMessages = false;
     }
+    // this.route.navigate(['/'],{queryParams: {userid: this.userid}});
   }
 }

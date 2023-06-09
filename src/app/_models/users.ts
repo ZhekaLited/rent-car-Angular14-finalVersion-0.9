@@ -2,7 +2,7 @@ export class Users {
   constructor(
     id: bigint, name: string, surname: string, birthday: Date,
     passid: string, balance: number, timearent: string, carsid: bigint,
-    nameCars: string,model:string,price:bigint,damage:string,deviations:string,
+    namecars: string,model:string,price:bigint,damage:string,deviations:string,
     disbalance:boolean,userid:bigint,status:string) {
     this.id = id;
     this.name = name;
@@ -12,7 +12,7 @@ export class Users {
     this.balance = balance;
     this.timearent = timearent;
     this.carsid = carsid;
-    this.nameCars = nameCars;
+    this.namecars = namecars;
     this.model = model;
     this.price = price;
     this.damage = damage;
@@ -30,7 +30,7 @@ export class Users {
   balance: number;
   timearent: string;
   carsid: bigint;
-  nameCars:string;
+  namecars:string;
   model:string;
   price:bigint;
   damage:string;

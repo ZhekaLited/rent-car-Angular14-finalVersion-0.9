@@ -19,27 +19,42 @@
           tooltipPosition="bottom"><img src="assets/images/usa.png" alt="ruflag" height="25px">
   </button>
 </div>
-<div>
-  <p-button label="{{'ADMIN.EXIT'|translate}}"
-            styleClass="p-button-outlined p-button-danger" (click)="clear()" class="exit-button">
-  </p-button>
-</div>
 <div class="block">
-  <a class="order">{{'USER.TITLE'| translate}}</a>
-  <h3 class="name">{{'USER.NAME'|translate}} {{user.name}}</h3>
-  <h3 class="sur">{{'USER.SURNAME'|translate}} {{user.surname}}</h3>
-  <h3 class="birth">{{'USER.BIRTHDAY'|translate}} {{user.birthday}}</h3>
-  <h3 class="pass">{{'USER.PASSPORT'|translate}} {{user.passid}}</h3>
-  <h3 class="arrent">{{'USER.TIME'|translate}} {{user.timearent}}</h3>
-  <div class="line-footer">
-    <hr align="right" width="1000px" size="3" color="black"/>
-  </div>
-  <h3 class="carname">{{'USER.NAMECARS'|translate}} {{user.nameCars}}</h3>
-  <h3 class="carmodel">{{'USER.CARMODEL'|translate}} {{user.model}}</h3>
-  <div class="line-footersec">
-    <hr align="right" width="1000px" size="3" color="black"/>
-  </div>
-  <h3 class="status">{{'USER.STATUS'|translate}}</h3>
-  <img class="img-status" src="assets/images/{{user.status}}">
-  <h3 class="devit">{{user.deviations}}</h3>
+  <img src="assets/images/free-icon-left-arrow-5166419.png" class="strelka"
+       (click)="home()" routerLinkActive="active"
+       pTooltip="{{'ADD.BACK' | translate}}"
+       tooltipPosition="bottom">
+    <a class="order">{{'USER.TITLE'| translate}}</a>
+  <p-table [value]="user" [tableStyle]="{ 'min-width': '50rem' }" scrollHeight="500px" class="table">
+    <ng-template pTemplate="header">
+      <tr>
+        <th pSortableColumn="id" style="min-width:100px">
+          <p-sortIcon field="id"></p-sortIcon>
+        </th>
+        <th style="min-width:100px">Name</th>
+        <th style="min-width:100px">Surname</th>
+        <th style="min-width:100px">Birthday</th>
+        <th style="min-width:100px">PassId</th>
+        <th style="min-width:100px">Time</th>
+        <th style="min-width:100px">Cars</th>
+        <th style="min-width:100px">Model</th>
+        <th style="min-width:100px">Status</th>
+        <th style="min-width:100px"></th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-user>
+      <tr>
+        <td></td>
+        <td>{{ user.name }}</td>
+        <td>{{ user.surname }}</td>
+        <td>{{ user.birthday }}</td>
+        <td>{{ user.passid }}</td>
+        <td>{{ user.timearent }}</td>
+        <td>{{ user.namecars }}</td>
+        <td>{{ user.model }}</td>
+        <td><img class="img-status" src="assets/images/{{user.status}}"></td>
+        <td>{{ user.deviations }}</td>
+      </tr>
+    </ng-template>
+  </p-table>
 </div>

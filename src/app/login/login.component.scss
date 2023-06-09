@@ -19,7 +19,7 @@
   font-family: "Alfa Slab One", cursive;
 }
 .block {
-  padding: 445px 33px 41px !important;
+  padding: 480px 33px 41px !important;
   background: white !important;
   width: 548px !important;
   border-radius: 20px !important;
@@ -47,7 +47,7 @@
   cursor: pointer;
 }
 .register-text-add {
-  margin-top: -71%;
+  margin-top: -75%;
   width: 96%;
   text-align: center;
   margin-left: -4%;
@@ -66,19 +66,19 @@
   margin-left: -31%;
   position: absolute;
   width: 70%;
-  margin-top: -19%;
+  margin-top: -26%;
 }
 .window-pass {
   cursor: pointer;
   width: 70%;
   position: absolute;
-  margin-top: 0%;
+  margin-top: -8%;
   margin-left: -31%;
 }
 
 .button-rent {
   position: absolute;
-  margin-top: 22%;
+  margin-top: 12%;
   margin-left: -9%;
   width: 27%;
 }
@@ -97,7 +97,22 @@
 .strelka {
   position: absolute;
   width: 6%;
-  margin-top: -75%;
+  margin-top: -80%;
   margin-left: 2%;
   cursor: pointer;
+}
+.registration-button {
+  position: absolute;
+  margin-left: 546px;
+  margin-top: 40%;
+}
+.button-reg-widht ::ng-deep .p-button {
+  color: #ffffff;
+  width: 140%;
+  background: #3B82F6;
+  border: 1px solid #3B82F6;
+  padding: 0.75rem 1.25rem;
+  font-size: 1rem;
+  transition: background-color 0.2s, color 0.2s, border-color 0.2s, box-shadow 0.2s;
+  border-radius: 6px;
 }

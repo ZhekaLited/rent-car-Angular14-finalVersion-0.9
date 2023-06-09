@@ -1,0 +1,125 @@
+.img-phone {
+  width: 116%;
+  margin-top: -18%;
+  margin-left: -8%;
+  position: fixed;
+}
+.site-logo-reg {
+  height: 56px;
+  margin-top: 7px;
+  position: absolute;
+  margin-left: 113px;
+}
+.log-logo-reg {
+  position: absolute;
+  cursor: default;
+  color: black;
+  margin-left: 175px;
+  margin-top: 29px;
+  font-family: "Alfa Slab One", cursive;
+}
+.lang-icon {
+  background: transparent;
+  border: none;
+  height: 30px;
+  margin-left: 28%;
+  margin-top: 23px;
+  position: absolute;
+  cursor: pointer;
+}
+.lang-icon-usa {
+  background: transparent;
+  border: none;
+  margin-left: 31%;
+  margin-top: 25px;
+  position: absolute;
+  cursor: pointer;
+}
+.block {
+  padding: 445px 33px 41px !important;
+  background: white !important;
+  width: 548px !important;
+  border-radius: 20px !important;
+  position: absolute;
+  margin-left: 28% !important;
+  margin-right: auto !important;
+  margin-top: 89px !important;
+  box-shadow: 0 1px 20px rgba(0, 0, 0, 0.6);
+}
+.register-text-add {
+  margin-top: -73%;
+  width: 50%;
+  text-align: center;
+  margin-left: 18%;
+  position: absolute;
+  font-size: 40px;
+  text-shadow: 0 0 black;
+  font-family: "Bebas Neue", cursive;
+  cursor: default;
+}
+.input-login{
+  position: absolute;
+  margin-left: 16%;
+  margin-top: -56%;
+  width: 55%;
+}
+.input-password {
+  position: absolute;
+  margin-left: 16%;
+  margin-top: -39%;
+  width: 55%;
+}
+.input-equalsPassword {
+  position: absolute;
+  margin-left: 16%;
+  margin-top: -25%;
+  width: 55%;
+}
+.user-exists {
+  color: red;
+  margin-left: 20%;
+  margin-top: -62%;
+  position: absolute;
+  font-size: 133%;
+  width: 46%;
+  text-align: center;
+  cursor: default;
+}
+.password-invalid {
+  color: red;
+  margin-left: 20%;
+  margin-top: -62%;
+  position: absolute;
+  font-size: 133%;
+  width: 46%;
+  text-align: center;
+  cursor: default;
+}
+.red-error-log {
+  position: absolute;
+  color: red;
+  margin-left: 74%;
+  margin-top: -53%;
+  cursor: default;
+}
+.red-error-pas {
+  position: absolute;
+  color: red;
+  margin-left: 74%;
+  margin-top: -35%;
+  cursor: default;
+}
+.red-error-pas-invalid {
+  position: absolute;
+  color: red;
+  margin-left: 74%;
+  margin-top: -21%;
+  cursor: default;
+}
+.strelka {
+  position: absolute;
+  width: 6%;
+  margin-top: -75%;
+  margin-left: 2%;
+  cursor: pointer;
+}

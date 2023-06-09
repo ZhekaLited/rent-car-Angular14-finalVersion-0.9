@@ -1,0 +1,59 @@
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap');
+  @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+</style>
+<div>
+  <img class="img-phone" src="assets/images/bmwphone.jpg">
+  <img class="site-logo-reg" src="assets/images/logo.png">
+</div>
+<div>
+  <a class="log-logo-reg">SMOTRA</a>
+</div>
+<div>
+  <button class="lang-icon" (click)="useLanguage('ru')" pTooltip="{{'ADMIN.RUSSIA' | translate}}"
+          tooltipPosition="bottom"><img src="assets/images/russia.png" alt="ruflag" height="28px">
+  </button>
+  <button class="lang-icon-usa" (click)="useLanguage('en')" pTooltip="{{'ADMIN.ENGLISH' | translate}}"
+          tooltipPosition="bottom"><img src="assets/images/usa.png" alt="ruflag" height="25px">
+  </button>
+</div>
+<div class="block">
+  <img src="assets/images/free-icon-left-arrow-5166419.png" class="strelka"
+       routerLink="/" routerLinkActive="active"
+       pTooltip="{{'ADD.BACK' | translate}}"
+       tooltipPosition="bottom">
+  <img *ngIf="carid == null" src="assets/images/free-icon-left-arrow-5166419.png" class="strelka"
+       routerLink="/login" routerLinkActive="active"
+       pTooltip="{{'REGISTR.BACK' | translate}}"
+       tooltipPosition="bottom">
+  <h1 *ngIf="ROLE == 'ADMIN' || ROLE == 'USER'" class="user-exists">{{'REGISTR.EXISTS'| translate}}</h1>
+  <h1 *ngIf="boolConfirm == false" class="password-invalid">{{'REGISTR.PASSINVALID'|translate}}</h1>
+  <div *ngIf="boolConfirm == false" class="red-error-pas">*</div>
+  <div *ngIf="boolConfirm == false" class="red-error-pas-invalid">*</div>
+  <a class="register-text-add">{{'REGISTR.REGISTR'| translate}}</a>
+        <form [formGroup]="Form" (ngSubmit)="submit()">
+          <input formControlName="login" type="text" pInputText class="input-login"
+                 placeholder="{{'LOGIN.LOGIN'|translate}}" style="position: absolute;" required
+                 [ngClass]="{ 'is-invalid': submitted && f['login'].errors }"/>
+          <div *ngIf="submitted && f['login'].errors" class="invalid-feedback red-error-log">
+            <div *ngIf="f['login'].errors['required']">*</div>
+          </div>
+          <input formControlName="password" type="password"
+                 class="p-inputtext p-component p-element p-password-input input-password"
+                 placeholder="{{'LOGIN.PASSWORD'|translate}}" required
+                 [ngClass]="{ 'is-invalid': submitted && f['password'].errors }"/>
+          <div *ngIf="submitted && f['password'].errors" class="invalid-feedback red-error-pas">
+            <div *ngIf="f['password'].errors['required']">*</div>
+          </div>
+          <input formControlName="equalsPassword" type="password"
+                 class="p-inputtext p-component p-element p-password-input input-equalsPassword"
+                 placeholder="{{'REGISTR.CONFIRM'|translate}}" required
+                 [ngClass]="{ 'is-invalid': submitted && f['equalsPassword'].errors }"/>
+          <div *ngIf="submitted && f['equalsPassword'].errors" class="invalid-feedback red-error-pas-invalid">
+            <div *ngIf="f['equalsPassword'].errors['required']">*</div>
+          </div>
+          <p-button type="submit" styleClass="p-button-success button-sub button-scroll"
+                    label="{{'HOME.SUBMIT'|translate}}"
+                    style="position: absolute; margin-top: -11%; margin-left: 35%;"></p-button>
+        </form>
+</div>

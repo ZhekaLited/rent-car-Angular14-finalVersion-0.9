@@ -6,6 +6,7 @@ export class Admin {
     this.role = role;
     this.id = id;
   }
+
   id:bigint;
   login:string;
   password:string;

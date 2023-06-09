@@ -1,0 +1,58 @@
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Alfa+Slab+One&display=swap');
+</style>
+<div>
+  <img class="img-phone" src="assets/images/bmwphone.jpg">
+  <img class="site-logo-reg" src="assets/images/logo.png">
+</div>
+<div>
+  <a class="log-logo-reg">SMOTRA</a>
+</div>
+<div>
+  <button class="lang-icon" (click)="useLanguage('ru')" pTooltip="{{'ADMIN.RUSSIA' | translate}}"
+          tooltipPosition="bottom"><img src="assets/images/russia.png" alt="ruflag" height="28px">
+  </button>
+  <button class="lang-icon-usa" (click)="useLanguage('en')" pTooltip="{{'ADMIN.ENGLISH' | translate}}"
+          tooltipPosition="bottom"><img src="assets/images/usa.png" alt="ruflag" height="25px">
+  </button>
+</div>
+<div class="block">
+  <img src="assets/images/free-icon-left-arrow-5166419.png" class="strelka" routerLink="/admin"
+       routerLinkActive="active"
+       pTooltip="{{'ADMIN.BACK' | translate}}"
+       tooltipPosition="bottom">
+  <p-table [value]="cars" [tableStyle]="{ 'min-width': '30rem' }" class="table scroll" scrollHeight="544px">
+    <ng-template pTemplate="header">
+      <tr>
+        <th pSortableColumn="id" style="min-width:100px">
+          <p-sortIcon field="id"></p-sortIcon>
+        </th>
+        <th style="min-width:100px">Name</th>
+        <th style="min-width:100px">Model</th>
+        <th style="min-width:100px">Delete</th>
+        <th style="min-width:100px">Damage</th>
+        <th style="min-width:100px"></th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-cars>
+      <tr>
+        <td></td>
+        <td>{{cars.namecars}}</td>
+        <td>{{cars.model}}</td>
+        <td>
+          <p-button icon="pi pi-times" styleClass="p-button-danger" class="icon-danger" (click)="confirm2(cars.id)"
+                       pTooltip="{{'CARLIST.DELETE'| translate}}" tooltipPosition="bottom"></p-button>
+        </td>
+        <td>
+          <p-button icon="pi pi-bell"
+                    styleClass="p-button-rounded p-button-danger p-button-text p-button-raised"
+                    (click)="updateDamage(cars.id)" pTooltip="{{'CARLIST.DANGER'| translate}}"
+                    tooltipPosition="bottom"></p-button>
+        </td>
+        <td><img src="assets/images/{{cars.damage}}" alt="" class="icon-damage"></td>
+      </tr>
+    </ng-template>
+  </p-table>
+  <p-confirmDialog class="color-back" [style]="{width: '50vw'}"></p-confirmDialog>
+  <p-toast></p-toast>
+</div>

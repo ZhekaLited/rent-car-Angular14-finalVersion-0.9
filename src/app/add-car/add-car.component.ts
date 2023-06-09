@@ -5,6 +5,7 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
 import {MessageService} from "primeng/api";
 import {CarService} from 'src/app/_service/car.service';
+import {formatDate} from "@angular/common";
 
 @Component({
   selector: 'app-add-car',
@@ -21,6 +22,7 @@ export class AddCarComponent implements OnInit {
   fileFat!: any;
   ImageCars!: FormGroup;
   filesFat: any[] = [];
+  myDate = new Date();
 
   constructor(private translate: TranslateService,
               public fb: FormBuilder, private ngZone: NgZone,
@@ -43,8 +45,8 @@ export class AddCarComponent implements OnInit {
 
   onUpload(event: any) {
     if (event.files) {
-      this.fileFat = event.files[0].name;
-      console.log(this.fileFat)
+      this.fileFat = event.originalEvent.body.fileName;
+      console.log(this.myDate.getMilliseconds() + this.fileFat)
       this.messageService.add({severity: 'info', summary: 'File Uploaded', detail: ''});
     }
   }
@@ -55,7 +57,7 @@ export class AddCarComponent implements OnInit {
 
   addIssue() {
     this.FormCars = this.fb.group({
-      name: ['', Validators.required],
+      namecars: ['', Validators.required],
       model: ['', Validators.required],
       price: ['', Validators.pattern('^[ 0-9]+$')],
       release: ['', Validators.pattern('^[ 0-9]+$')],
@@ -68,15 +70,17 @@ export class AddCarComponent implements OnInit {
   }
 
   onUploads(event: any) {
-    for (let file of event.files) {
-      this.uploadedFiles.push(file);
-      this.filesFat.push(file.name);
-      console.log(this.filesFat)
+    for (let fileName of event.files) {
+      this.uploadedFiles.push(fileName);
     }
-    this.messageService.add({severity: 'info', summary: 'File Uploaded', detail: ''});
-  }
+      for (let file of event.originalEvent.body) {
+        this.filesFat.push(file.fileName);
+        console.log(this.filesFat)
+      }
+      this.messageService.add({severity: 'info', summary: 'File Uploaded', detail: ''});
+    }
 
-  visibleButton(event: any) {
+    visibleButton(event: any) {
     if (event != null) {
       return true;
     } else {

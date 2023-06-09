@@ -17,7 +17,7 @@
   </div>
 </div>
 <div class="block">
-  <h2 class="text-title">{{'ADD.ENTER'|translate}}<br>{{car.name}}({{car.model}})</h2>
+  <h2 class="text-title">{{'ADD.ENTER'|translate}}<br>{{car.namecars}}({{car.model}})</h2>
   <form [formGroup]="carsForm" (ngSubmit)="submitForm()">
     <div class="form-dts">
       <input class="window-write" formControlName="name" type="text" placeholder="{{'ADD.NAME' | translate}}" required
@@ -57,6 +57,6 @@
 </div>
 <div>
   <img src="assets/images/free-icon-left-arrow-5166419.png"
-       class="strelka" routerLink="/" routerLinkActive="active" pTooltip="{{'ADD.BACK' | translate}}"
+       class="strelka" (click)="home()" routerLinkActive="active" pTooltip="{{'ADD.BACK' | translate}}"
        tooltipPosition="bottom">
 </div>

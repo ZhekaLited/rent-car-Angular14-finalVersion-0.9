@@ -1,14 +1,26 @@
-import { Injectable } from '@angular/core';
-import { Router, CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, CanActivateChild } from '@angular/router';
+import {Injectable, OnInit} from '@angular/core';
+import {
+  Router,
+  CanActivate,
+  ActivatedRouteSnapshot,
+  RouterStateSnapshot,
+  CanActivateChild,
+  ActivatedRoute
+} from '@angular/router';
 
 import { Observable } from 'rxjs';
 import {Admin} from "../_models/admin";
 
 @Injectable({ providedIn: 'root' })
-export class AuthGuard implements CanActivate,CanActivateChild {
+export class AuthGuard implements CanActivate,CanActivateChild,OnInit {
   admin!:Admin;
   roleAs:any;
-  constructor(private router: Router) { }
+  userId!:any;
+  constructor(private router: Router,private route: ActivatedRoute,) { }
+
+  ngOnInit() {
+
+  }
 
   public canActivateChild(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | Promise<boolean> | boolean {
     if (!this.hasAccessToken()) {
@@ -20,9 +32,13 @@ export class AuthGuard implements CanActivate,CanActivateChild {
   }
 
   public canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean | Observable<boolean> | Promise<boolean> {
-    if (!this.hasAccessToken()) {
-      this.redirectToLogin();
-      return false;
+    let userid = this.route.snapshot.queryParamMap.get('userid');
+    this.userId = userid;
+    if(this.userId == undefined) {
+      if (!this.hasAccessToken()) {
+        this.redirectToLogin();
+        return false;
+      }
     }
     return true;
   }

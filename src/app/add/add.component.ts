@@ -27,6 +27,7 @@ export class AddComponent implements OnInit {
   value!: Date;
   submitted = false;
   images!: ItemImage[];
+  userid!:any;
 
   responsiveOptions!: any[];
 
@@ -41,6 +42,8 @@ export class AddComponent implements OnInit {
 
   //Достать с Json Id и достать нужное поле
   ngOnInit() {
+    let id = this.router.snapshot.queryParamMap.get('userid');
+    this.userid = id;
     this.images = new Array<ItemImage>(); //Обьявление колекции
     this.responsiveOptions = [
       {
@@ -76,6 +79,10 @@ export class AddComponent implements OnInit {
     Global.language = language;
     window.localStorage.setItem('access_language', language);
     this.translate.use(Global.language);
+  }
+
+  home() {
+    this.route.navigate(['/'],{queryParams: {userid: this.userid}});
   }
 
   show() {

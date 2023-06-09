@@ -12,10 +12,10 @@
   <a class="log-logo-reg">SMOTRA</a>
 </div>
 <div class="block">
-  <a class="register-text-add">{{car.name}} ({{car.model}})</a>
+  <a class="register-text-add">{{car.namecars}} ({{car.model}})</a>
   <br>
   <div class="black-block">
-    <img src="assets/images/free-icon-left-arrow-5166419.png" class="strelka" routerLink="/"  routerLinkActive="active"
+    <img src="assets/images/free-icon-left-arrow-5166419.png" class="strelka" (click)="home()"  routerLinkActive="active"
          pTooltip="{{'ADD.BACK' | translate}}"
          tooltipPosition="bottom">
     <img src="assets/images/calendar.svg" class="icon-calendar">
@@ -29,7 +29,7 @@
       <h1 class="text-mesta">{{car.mesta}}</h1>
     </div>
   </div>
-  <div class="card photos" style="margin-top: -36%;margin-left: 1%;width: 45%;position: absolute;">
+  <div class="card photos" style="margin-top: -35%;margin-left: 1%;width: 45%;position: absolute;">
     <p-galleria [value]="images" [responsiveOptions]="responsiveOptions" [containerStyle]="{ 'max-width': '640px' }"
                 [numVisible]="5">
       <ng-template pTemplate="item" let-cars>
@@ -37,9 +37,7 @@
       </ng-template>
       <ng-template pTemplate="thumbnail" let-cars>
         <div class="grid grid-nogutter justify-content-center">
-          <img [src]="cars.thumbnailImageSrc" style="
-    width: 100%;
-"/>
+          <img [src]="cars.thumbnailImageSrc" style="width: 100%;"/>
         </div>
       </ng-template>
     </p-galleria>

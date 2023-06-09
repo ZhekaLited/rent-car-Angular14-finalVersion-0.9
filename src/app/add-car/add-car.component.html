@@ -26,11 +26,11 @@
 <div>
   <h1 class="title">{{'CAR.TITLE'| translate}}</h1>
   <form [formGroup]="FormCars" (ngSubmit)="submitForm()">
-  <input type="text" pInputText class="window-write" formControlName="name"
+  <input type="text" pInputText class="window-write" formControlName="namecars"
          placeholder="{{'CAR.NAME'| translate}}"
-         [ngClass]="{ 'is-invalid': submitted && f['name'].errors }"/>
-    <div *ngIf="submitted && f['name'].errors" class="invalid-feedback red-error">
-      <div *ngIf="f['name'].errors['required']">*</div>
+         [ngClass]="{ 'is-invalid': submitted && f['namecars'].errors }"/>
+    <div *ngIf="submitted && f['namecars'].errors" class="invalid-feedback red-error">
+      <div *ngIf="f['namecars'].errors['required']">*</div>
     </div>
   <input type="text" pInputText class="window-writes" formControlName="model"
          placeholder="{{'CAR.MODEL'| translate}}"

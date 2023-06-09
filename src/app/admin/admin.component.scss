@@ -129,5 +129,22 @@
 .admin-button {
   position: absolute;
   margin-top: 1%;
-  margin-left: 66%;
+  margin-left: 781px;
+}
+.button-car {
+  position: absolute;
+  margin-top: 4px;
+  margin-left: 844px;
+  cursor: pointer;
+  width: 5%;
+}
+.hidden-type-button ::ng-deep .p-button.p-button-icon-only {
+  visibility: hidden;
+  width: 3rem;
+  padding: 0.75rem 0;
+}
+.speedScroll {
+  position:absolute;
+  margin-left: 35%;
+  margin-top: 10%;
 }

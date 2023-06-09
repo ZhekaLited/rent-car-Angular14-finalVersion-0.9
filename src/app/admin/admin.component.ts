@@ -4,7 +4,7 @@ import {catchError, first, Observable, retry, Subject} from "rxjs";
 import {CarService} from "../_service/car.service";
 import {Cars} from '../_models';
 import {HttpClient, HttpHeaders, HttpParams} from "@angular/common/http";
-import {ConfirmationService, Message, PrimeNGConfig} from 'primeng/api';
+import {ConfirmationService, Message, PrimeNGConfig, SortEvent} from 'primeng/api';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {ActivatedRoute, Router, Params} from "@angular/router";
 import {Global} from "../globals";
@@ -31,6 +31,8 @@ export class AdminComponent implements OnInit {
   balance!: any;
   price!: any;
   user!: Users;
+  count!: any;
+  isLoading!: boolean;
 
   constructor(private carService: CarService, private http: HttpClient,
               private cd: ChangeDetectorRef,
@@ -50,9 +52,9 @@ export class AdminComponent implements OnInit {
 
   ngOnInit() {
     this.updateIssue();
-    this.carService.getAllUsers().pipe(first()).subscribe(users => {
-      this.users = users;
-    });
+    this.carService.getCountUsers().subscribe(count => {
+      this.count = count;
+    })
     this.carService.getAll().pipe(first()).subscribe(cars => {
       this.cars = cars;
     });
@@ -76,7 +78,7 @@ export class AdminComponent implements OnInit {
   }
 
   submitForm() {
-    if(this.usersForm.value != null || this.usersForm.value != "") {
+    if (this.usersForm.value != null || this.usersForm.value != "") {
       this.updatedeviations(this.id, this.usersForm.value);
       setTimeout(() => {
         this.ngOnInit()
@@ -111,13 +113,16 @@ export class AdminComponent implements OnInit {
     if (usersFind != null) {
       if (usersFind.damage == null || usersFind.damage == '') {
         this.http.put(`http://localhost:8080/cars/damage?id=${id}`, id)
-          .subscribe(result => usersFind.damage = result.toString());
-        setTimeout(() => {
-          this.ngOnInit()
-        }, 1 * 10);
+          .subscribe(
+            result => {
+              usersFind.damage = JSON.parse(JSON.stringify(result)).image
+            });
       } else {
-        usersFind.damage = "";
-        this.http.put(`http://localhost:8080/cars/damageNull?id=${id}`, id).subscribe();
+        this.http.put(`http://localhost:8080/cars/damageNull?id=${id}`, id).subscribe(
+          result => {
+            usersFind.damage = JSON.parse(JSON.stringify(result)).image
+          }
+        );
       }
     }
   }
@@ -126,7 +131,7 @@ export class AdminComponent implements OnInit {
     let userFind = this.users.find(y => y.id == id);
     if (userFind != null && (userFind.disbalance == null || userFind.disbalance == false)) {
       this.http.put(`http://localhost:8080/cars/Reason?id=${id}`,
-        {param: {disbalance: true, deviations: deviations}} ).subscribe();
+        {param: {disbalance: true, deviations: deviations}}).subscribe();
     }
   }
 
@@ -144,9 +149,54 @@ export class AdminComponent implements OnInit {
         });
     }
   }
+
+
+  //-----methods PAGINATION AND SORTING WITH REST API-----
+  loadPatientListing(event: any) {
+    this.isLoading = true; //Загрузка
+    this.carService.getAllUsers(event.first, event.rows, event.sortOrder== 1 ? "ASC"  : "DESC",event.sortField == undefined ? "id" : event.sortField).pipe(first()).subscribe(users => {
+      this.users = users;
+      this.isLoading = false; //Загрузка
+    },
+      (error) => {        //Кружок загрузки
+      this.isLoading = false;  //Загрузка
+      }
+    )
+  }
+
+
   public clear() {
     localStorage.removeItem("access_token");
-     this.route.navigateByUrl("/");
+    this.route.navigateByUrl("/");
   }
 }
 
+
+
+
+
+
+
+
+//------PAGINATION AND SORTING EXAMPLE-----
+
+// this.patientFilterModel.PageSize = event.rows;
+// this.patientFilterModel.RowNumber = event.first;
+// this.patientFilterModel.OrderColomn = event.sortField;
+//
+// if (event.sortOrder == -1 || this.desc == "DESC") {
+//   this.desc = "ASC";
+// } else if(event.sortOrder == 1 || this.desc == "ASC"){
+//   this.desc = "DESC";
+// }
+
+// this.patientService.GetPatientListing(this.patientFilterModel).subscribe(
+//   (data) => {
+//     this.patientModel = data;
+//     this.paitientListing = this.patientModel._ListPatientListing;
+//     this.totalRecords = data.TotalRecords;
+//   },
+//   (error) => {
+//     this.loading = false;
+//   },
+// );

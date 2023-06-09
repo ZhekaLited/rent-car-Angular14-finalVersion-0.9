@@ -7,6 +7,7 @@ import {FormBuilder, Validators} from "@angular/forms";
 import {AuthenticationService} from "../_service/authentication.service";
 import {AuthenticationRequestDto} from "../_models/AuthenticationRequestDto";
 import {HttpClient} from "@angular/common/http";
+import {HomeComponent} from "../home";
 
 @Component({
   selector: 'app-login',
@@ -19,6 +20,7 @@ export class LoginComponent extends EntityDetailsComponent implements OnInit {
   public hidePassword: boolean = true;
   role: string = "";
   userid!: any;
+  carid!:any;
 
   @ViewChild("passwordInput", {static: false})
   private passwordInput!: ElementRef;
@@ -65,6 +67,8 @@ export class LoginComponent extends EntityDetailsComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    let idcar = this.route.snapshot.queryParamMap.get('carid');
+    this.carid = idcar;
     this.createForm();
     this.useLanguage(Global.language);
 
@@ -94,7 +98,10 @@ export class LoginComponent extends EntityDetailsComponent implements OnInit {
           this.router.navigateByUrl('/admin');
         }
         if (this.role === "USER") {
-          this.router.navigate(['/orderList/'],{queryParams: {userid: this.userid}});
+          this.router.navigate(['/'],{queryParams: {userid: this.userid}});
+        }
+        if(this.role === "USER" && this.carid != null) {
+          this.router.navigate(['/paperwork/' + this.carid],{queryParams: {userid: this.userid}});
         }
       })
   }

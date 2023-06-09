@@ -9,7 +9,8 @@ import {PaperworkComponent} from "./paperwork/paperwork.component";
 import { UserComponent } from 'src/app/user/user.component';
 import { CreateAdminComponent } from 'src/app/create-admin/create-admin.component';
 import { AddCarComponent } from 'src/app/add-car/add-car.component';
-
+import { CarListComponent } from 'src/app/car-list/car-list.component';
+import { RegistrationComponent } from 'src/app/registration/registration.component';
 
 const routes: Routes = [
 
@@ -23,6 +24,10 @@ const routes: Routes = [
   },
   {
     path:'login',
+    component:LoginComponent,
+  },
+  {
+  path:'login/:id',
     component:LoginComponent,
   },
   {
@@ -46,6 +51,14 @@ const routes: Routes = [
   {
     path: 'addCar',
     component:AddCarComponent,
+  },
+  {
+    path: 'car-list',
+    component:CarListComponent,
+  },
+  {
+    path: 'registation',
+    component:RegistrationComponent,
   },
   { path: '**', redirectTo: '' }
 ];

@@ -27,23 +27,36 @@
   <p-button label="{{'ADMIN.CAR'|translate}}" styleClass="p-button-outlined p-button-info" class="addCar-button"
             routerLink="/addCar" routerLinkActive="active"></p-button>
 </div>
+<div>
+<img pTooltip="{{'ADMIN.CARS' | translate}}" tooltipPosition="bottom" class="button-car" src="assets/images/car.png"
+     routerLink="/car-list" routerLinkActive="active">
+</div>
 <div class="admin-button">
   <p-button icon="pi pi-user" styleClass="p-button-info" pTooltip="{{'ADMIN.ADMIN' | translate}}"
             tooltipPosition="bottom"  routerLink="/createAdmin" routerLinkActive="active"></p-button>
 </div>
 <div class="card" style=" margin-top: 104px;position: absolute; margin-left: -6px; width: 100%;cursor: default;">
-  <p-table [value]="users" [scrollable]="true" scrollHeight="544px">
+  <p-table [value]="users" [scrollable]="true" scrollHeight="544px"
+           [paginator]="true"
+           [rows]="5"
+           [lazy]="true"
+           [totalRecords]="count"
+           (onLazyLoad)="loadPatientListing($event)">
     <ng-template pTemplate="header">
+    <div *ngIf="isLoading" class="speedScroll">
+      <p-progressSpinner strokeWidth="8" animationDuration=".5s"></p-progressSpinner>
+    </div>
       <tr>
-        <th style="min-width:100px">Name</th>
-        <th style="min-width:130px">Surname</th>
-        <th style="min-width:130px">Birthday</th>
-        <th style="min-width:130px">PassId</th>
-        <th style="min-width:130px">Balance</th>
-        <th style="min-width:130px">TimeArent</th>
-        <th style="min-width:130px">NameCars</th>
-        <th style="min-width:130px">Model</th>
-        <th style="min-width:130px">Price</th>
+        <th pSortableColumn="id" style="min-width:100px">Id<p-sortIcon  field="id"></p-sortIcon></th>
+        <th pSortableColumn="name" style="min-width:110px">Name<p-sortIcon  field="name"></p-sortIcon></th>
+        <th pSortableColumn="surname" style="min-width:130px">Surname<p-sortIcon  field="surname"></p-sortIcon></th>
+        <th pSortableColumn="birthday" style="min-width:130px">Birthday<p-sortIcon  field="birthday"></p-sortIcon></th>
+        <th pSortableColumn="passid" style="min-width:130px">PassId<p-sortIcon  field="passid"></p-sortIcon></th>
+        <th pSortableColumn="balance" style="min-width:130px">Balance<p-sortIcon  field="balance"></p-sortIcon></th>
+        <th pSortableColumn="timearent" style="min-width:140px">TimeArent<p-sortIcon  field="timearent"></p-sortIcon></th>
+        <th pSortableColumn="namecars" style="min-width:138px">NameCars<p-sortIcon  field="namecars"></p-sortIcon></th>
+        <th pSortableColumn="model" style="min-width:130px">Model<p-sortIcon  field="model"></p-sortIcon></th>
+        <th pSortableColumn="price" style="min-width:130px">Price<p-sortIcon  field="price"></p-sortIcon></th>
         <th style="min-width:130px">Rejected for a reason</th>
         <th style="min-width:130px">Action</th>
         <th style="min-width:100px">Damage</th>
@@ -52,13 +65,14 @@
     </ng-template>
     <ng-template pTemplate="body" let-users>
       <tr>
+        <td>{{users.id}}</td>
         <td>{{users.name}}</td>
         <td>{{users.surname}}</td>
         <td>{{users.birthday}}</td>
         <td>{{users.passid}}</td>
         <td [(ngModel)]="users.balance" ngDefaultControl>{{users.balance}}$</td>
         <td>{{users.timearent}}</td>
-        <td>{{users.nameCars}}</td>
+        <td>{{users.namecars}}</td>
         <td>{{users.model}}</td>
         <td>{{users.price}}$</td>
         <td>{{users.deviations}}</td>
@@ -88,5 +102,6 @@
         <td><img src="assets/images/{{users.damage}}" alt="" class="icon-damage"></td>
       </tr>
     </ng-template>
+
   </p-table>
 </div>

@@ -36,6 +36,11 @@
     </div>
   </form>
 </div>
+  <div>
+  <p-button *ngIf="carid == null" class="registration-button button-reg-widht" label="{{'HOME.REGISTR'| translate}}"
+            routerLink="/registation"
+            routerLinkActive="active"></p-button>
+  </div>
 <div>
   <button class="lang-icon" (click)="useLanguage('ru')" pTooltip="{{'ADMIN.RUSSIA' | translate}}"
           tooltipPosition="bottom"><img src="assets/images/russia.png" alt="ruflag" height="28px">

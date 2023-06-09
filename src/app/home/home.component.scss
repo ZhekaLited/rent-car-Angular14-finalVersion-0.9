@@ -481,4 +481,72 @@ body:not([class]) {
   margin-top: 19%;
   cursor: default;
 }
+.warning ::ng-deep .p-tag.p-tag-danger {
+  background-color: #EF4444;
+  color: #ffffff;
+  cursor: default;
+  width: 78%;
+}
 
+.element {
+  width: 100px;
+  height: 100px;
+  animation: changeColor 3s infinite, move 4s infinite alternate;
+}
+
+@keyframes move {
+  0% {
+    margin-left: 0px;
+  }
+  100% {
+    margin-left: 200px;
+  }
+}
+
+@keyframes changeColor {
+  0% {
+    background-color: red;
+  }
+  50% {
+    background-color: yellow;
+  }
+  100% {
+    background-color: blue;
+  }
+}
+.button--exit {
+  position: absolute;
+  margin-top: -690px;
+  margin-left: 86%;
+}
+.button--myorder {
+  position: absolute;
+  margin-top: -690px;
+  margin-left: 74%;
+}
+.login-name {
+  position: absolute;
+  color: white;
+  margin-left: 41%;
+  font-size: 26px;
+  margin-top: 36px;
+  text-align: center;
+  cursor: default;
+  font-family: "Open Sans", sans-serif;
+}
+.buton--SignIn {
+  position: absolute;
+  margin-left: 29%;
+  margin-top: 4%;
+}
+.button--widht ::ng-deep .p-button:enabled {
+  background: #2563eb;
+  color: #ffffff;
+  border-color: #2563eb;
+  width: 230px;
+}
+.buton--Registr {
+  position: absolute;
+  margin-left: 29%;
+  margin-top: 18%;
+}

@@ -25,7 +25,9 @@
     "TITLESEC": "To further track the status of the order.",
     "TITLEFIR": "Need to create an account or enter existing data",
     "TITLEFOR": "Or enter your save details",
-    "SUBMIT": "Further"
+    "SUBMIT": "Further",
+    "MYORDER": "My Order",
+    "REGISTR": "Registration"
   },
   "ADD": {
     "ENTER": "Enter passport data to order a car",
@@ -57,7 +59,8 @@
     "BACK": "Back to admin panel",
     "CREATE": "CREATE",
     "TITLE": "Create Admin",
-    "TITLESEC": "Enter data to create an admin"
+    "TITLESEC": "Enter data to create an admin",
+    "CARS": "List Cars"
   },
   "USER": {
     "TITLE": "Order Sheet",
@@ -86,5 +89,17 @@
     "CHOOSE": "Choose",
     "MAIN": "Main Photo",
     "INFORMATION": "Detailed Photos"
+  },
+  "CARLIST": {
+    "DANGER": "Damaged",
+    "WARNING": "Not Available",
+    "DELETE": "Delete"
+  },
+  "REGISTR": {
+    "REGISTR": "Registration",
+    "EXISTS": "USER IS EXISTS",
+    "CONFIRM": "Password confirmation",
+    "PASSINVALID": "Password Mismatch",
+    "BACK": "Back to authorization screen"
   }
 }

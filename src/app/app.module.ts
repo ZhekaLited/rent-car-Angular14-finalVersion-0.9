@@ -30,6 +30,10 @@ import { UserComponent } from './user/user.component';
 import { CreateAdminComponent } from './create-admin/create-admin.component';
 import { AddCarComponent } from './add-car/add-car.component';
 import { FileUploadModule } from 'primeng/fileupload';
+import { CarListComponent } from './car-list/car-list.component';
+import { TagModule } from 'primeng/tag';
+import { RegistrationComponent } from './registration/registration.component';
+
 
 
 export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
@@ -46,12 +50,15 @@ export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
     PaperworkComponent,
     UserComponent,
     CreateAdminComponent,
-    AddCarComponent
+    AddCarComponent,
+    CarListComponent,
+    RegistrationComponent
   ],
   imports: [
     BrowserModule,
     ToastModule,
     TableModule,
+    TagModule,
     FileUploadModule,
     ConfirmDialogModule,
     InputTextModule,

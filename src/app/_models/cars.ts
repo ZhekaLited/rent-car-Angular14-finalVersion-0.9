@@ -1,9 +1,9 @@
 export class Cars {
-  constructor(id: number, price: number,name: string,model:string,image:string,release:string,kpp:string,
-              dvigatel:string,mesta:string,carsimage:string) {
+  constructor(id: bigint, price: number,namecars: string,model:string,image:string,release:string,kpp:string,
+              dvigatel:string,mesta:string,carsimage:string,damage:string,status:boolean) {
     this.id = id;
     this.price = price;
-    this.name = name;
+    this.namecars = namecars;
     this.model = model;
     this.image = image;
     this.release = release;
@@ -11,11 +11,13 @@ export class Cars {
     this.dvigatel = dvigatel;
     this.mesta = mesta;
     this.carsimage = carsimage;
+    this.damage = damage;
+    this.status = status;
   }
 
-  id:number;
+  id:bigint;
   price:number;
-  name:string;
+  namecars:string;
   model:string;
   image:string;
   release:string;
@@ -23,4 +25,6 @@ export class Cars {
   dvigatel:string;
   mesta:string;
   carsimage:string;
+  damage:string;
+  status:boolean;
 }

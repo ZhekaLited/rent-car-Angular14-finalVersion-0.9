@@ -5,14 +5,14 @@ import {Cars} from "../_models/cars";
 import {map, Observable, retry} from "rxjs";
 import {Users} from "../_models/users";
 import {Admin} from "../_models/admin";
-import { AuthenticationService } from 'src/app/_service/authentication.service';
+import {AuthenticationService} from 'src/app/_service/authentication.service';
 
 @Injectable({providedIn: 'root'})
 
 export class CarService {
-  allowedRoles:any;
+  allowedRoles: any;
 
-  constructor(private http: HttpClient,private router: Router) {
+  constructor(private http: HttpClient, private router: Router) {
   }
 
   httpOptions = {
@@ -25,8 +25,17 @@ export class CarService {
     return this.http.get<Cars[]>('http://localhost:8080/cars/allCars');
   }
 
-  getAllUsers() {
-    return this.http.get<Users[]>('http://localhost:8080/cars/allUsers')
+  getAllCarsSort() {
+    return this.http.get<Cars[]>('http://localhost:8080/cars/allCarsSort');
+  }
+
+  getCountUsers() {
+    return this.http.get<Users[]>('http://localhost:8080/cars/countUsers');
+  }
+
+  getAllUsers(rowNumber: bigint, pageSize: bigint,desc:String,sortField:any) {
+    return this.http.get<Users[]>(`http://localhost:8080/cars/allUsers?rowNumber=${rowNumber}&pageSize=${pageSize}
+    &desc=${desc}&sortField=${sortField}`);
   }
 
   getByIdCars(id: string | null): Observable<Cars> {
@@ -40,6 +49,20 @@ export class CarService {
     let headers = new HttpHeaders();
     headers.append('Content-Type', "applicaton/json");
     return this.http.get<Cars>(`http://localhost:8080/cars/carsById?id=${id}`,
+      {headers: headers}).pipe(map((response: any) => response));
+  }
+
+  getUserForLogin(userid: any) {
+    let headers = new HttpHeaders();
+    headers.append('Content-Type', "applicaton/json");
+    return this.http.get<Admin>(`http://localhost:8080/cars/userLoginForId?userid=${userid}`,
+      {headers: headers}).pipe(map((response: any) => response));
+  }
+
+  getUserForForm(id: string) {
+    let headers = new HttpHeaders();
+    headers.append('Content-Type', "applicaton/json");
+    return this.http.get<Cars>(`http://localhost:8080/cars/userById?id=${id}`,
       {headers: headers}).pipe(map((response: any) => response));
   }
 
